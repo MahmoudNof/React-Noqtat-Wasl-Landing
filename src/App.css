@@ -1,0 +1,102 @@
+/* 1. إعدادات عامة للمتصفح */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* خلفية فاتحة تريح العين للقراءة */
+  direction: rtl; /* دعم اللغة العربية */
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* 2. تنسيق الحاوية الرئيسية (App) */
+.App {
+  max-width: 850px; /* عرض مناسب جداً للمقالات والمبادرات */
+  margin: 40px auto;
+  padding: 20px;
+  line-height: 1.8; /* مسافة مريحة بين الأسطر للقراءة */
+}
+
+/* 3. تطبيق ألوانك المختارة (نقطة وصل) */
+.about-section {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* ظل خفيف لإبراز الأقسام */
+  border-right: 8px solid #1f7a5a; /* اللون الذي اخترته للمبادرة */
+}
+
+.about-section h2 {
+  color: #1f7a5a;
+  margin-top: 0;
+}
+/* هذه التنسيقات من عندي */
+.about-section p {
+  color: #000;
+  /* margin-top: 0; */
+}
+
+h1 {
+  color: #1f7a5a;
+  text-align: center;
+}
+
+.App img {
+  max-width: 100%;
+}
+/* هذه التنسيقات من عندي */
+/* تنسيقا الصورة الفردية قبل ما يتم العرض من المصفوفة باستخدام map */
+.hero-image {
+  /* width: 100%;       تجعل الصورة بعرض الحاوية */
+  max-height: 400px; /* لكي لا تأخذ مساحة طولية ضخمة */
+  object-fit: cover; /* تحافظ على تناسق الصورة دون تمطيط */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.main-image-container {
+  text-align: center;
+}
+/* هذه تنسيقات خاصة ب gellary */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap; /* هذا يسمح للصور بالنزول لسطر جديد إذا ضاقت الشاشة */
+  gap: 15px;      /* مسافة بين الصور */
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.grid-item {
+  flex: 1 1 250px; /* تعني: تمدد، اتقلص، وليكن حجمك المثالي 250px */
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s; /* حركة خفيفة عند التحويم */
+}
+
+.grid-item:hover {
+  transform: scale(1.05); /* تكبير بسيط عند وضع الماوس على الصورة */
+}
+
+/* 4. تنسيق المهام (Volunteer Tasks) */
+input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px; /* حواف دائرية من جهة واحدة */
+}
+
+button {
+  background-color: #1f7a5a;
+  color: wheat;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  color: gold;
+  background-color: #165a42;
+}
