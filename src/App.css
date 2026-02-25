@@ -100,3 +100,25 @@ button:hover {
   color: gold;
   background-color: #165a42;
 }
+/* Counters Css  */
+.stats-Container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.stat-Card {
+  background-color: #1f7a5a;
+  color: wheat;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  flex: 1;
+}
+
+.stat-Card h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: gold;
+}

@@ -5,8 +5,9 @@ import img3 from './assets/img3.jpeg'
 import img4 from './assets/img4.jpeg'
 import img5 from './assets/img5.jpeg'
 import About from './Component/About'
-import { sections } from './data'
+import sections  from './data'
 import './App.css'
+import ImpactCounters from './Component/ImpactCounters'
 
 function App() {
   const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"])
@@ -28,6 +29,8 @@ function App() {
     <div className='App'>
       
       <h1 style={{ textAlign: 'center', color: '#1f7a5a' }}>مبادرة نقطة وصل</h1>
+
+      <ImpactCounters />
       
       {/* <img src={img1}  alt="واقع المبادرة" /> */}
       <div className='gallery-grid'>
