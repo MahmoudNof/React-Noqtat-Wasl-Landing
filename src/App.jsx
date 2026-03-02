@@ -1,76 +1,52 @@
-import { useState } from 'react'
-import img1 from './assets/img1.jpeg'
-import img2 from './assets/img2.jpeg'
-import img3 from './assets/img3.jpeg'
-import img4 from './assets/img4.jpeg'
-import img5 from './assets/img5.jpeg'
-import About from './Component/About'
-import sections  from './data'
-import './App.css'
-import ImpactCounters from './Component/ImpactCounters'
-import Navbar from './Component/Navbar'
+import { useState } from "react";
+import "./App.css";
+// استيراد الصور
+import img1 from "./assets/img1.jpeg";
+import img2 from "./assets/img2.jpeg";
+import img3 from "./assets/img3.jpeg";
+import img4 from "./assets/img4.jpeg";
+import img5 from "./assets/img5.jpeg";
+// استيراد المكونات
+import Navbar from "./Component/Navbar";
+import ImpactCounters from "./Component/ImpactCounters";
+import Gallery from "./Component/Gallery";
+import TaskSystem from "./Component/TaskSystem";
+import About from "./Component/About";
+import HumanDetail from './Component/HumanDetail'
+import sections from "./data";
 
 function App() {
-  const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"])
+  const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"]);
   const [inputValue, setInputValue] = useState("");
-  const [showMore, setShowMore] = useState(false)
+  const images = [img1, img2, img3, img4, img5];
+
   const addTask = (text) => {
     setTasks([text, ...tasks]);
-  }
-
+  };
   const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !==index))
-  }
-
- 
-
-  const images = [img1, img2, img3, img4, img5]
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
 
   return (
-    <div className='App'>
-      <Navbar />
-      
-      <h1>مبادرة نقطة وصل</h1>
-
-      <ImpactCounters />
-      
-      {/* <img src={img1}  alt="واقع المبادرة" /> */}
-      <div className='gallery-grid'>
-        {images.map((pic, index) => (
-          <img key={index} src={pic} alt={`واقع المبادرة ${index + 1}`} className="grid-item"  />
-        ))}
-      </div>
-        {/* الزر الذكي */}
-      <div style={{textAlign: 'center', margin: '20px'}}>
-        <button onClick={() => setShowMore(!showMore)}>
-          {showMore ? "اخفاء التفاصيل" : "اظهار التفاصيل الانسانية" }
-        </button>
-      </div>
-        
-        {/* النص الذي يظهر ويختفي */}
-        {showMore && (
-          <div className='about-section animate-fade'>
-            <h3>تفاصيل اضافية</h3>
-            <p>نعمل حالياً على تجهيز الطاولات وتمديد شبكة الإنترنت لنكون جاهزين لاستقبال أول دفعة من الطلاب مع بداية الأسبوع القادم.</p>
-          </div>
-        )}
-
+    <div className="App">
+      <div id="navbar"><Navbar /></div>
+<h1 style={{ textAlign: 'center', color: '#1f7a5a', marginTop: '100px' }}>مبادرة نقطة وصل</h1>
+      <div id="impact"><ImpactCounters /></div>
+      <div id="gallery"><Gallery images={images} /></div>
+      <div id="humanDetail"><HumanDetail /></div>
       {sections.map((sec, index) => (
         <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
       ))}
-
-      <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="... اكتب مهمة جديدة" />
-      <button onClick={() => inputValue && addTask(inputValue)}>اضافة مهمة تجريبية</button>
-      <ul>
-        {tasks.map((item, index) => (
-          <li key={index}>
-            {item}
-            <button onClick={() => deleteTask(index)}>حذف المهمة</button> 
-          </li>
-        ))}
-      </ul>
+      <div id="taskSystem"><TaskSystem
+        tasks={tasks}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        addTask={addTask}
+        deleteTask={deleteTask}
+      /></div>
+      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

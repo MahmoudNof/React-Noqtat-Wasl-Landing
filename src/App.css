@@ -8,6 +8,10 @@
   --bg-light: #f4f4f4;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -156,4 +160,25 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+}
+/* تأثير الظهور التدريجي */
+.animate-fade {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* تحسين شكل الأزرار */
+button {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  filter: brightness(1.1);
 }
