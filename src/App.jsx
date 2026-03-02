@@ -8,6 +8,7 @@ import About from './Component/About'
 import sections  from './data'
 import './App.css'
 import ImpactCounters from './Component/ImpactCounters'
+import Navbar from './Component/Navbar'
 
 function App() {
   const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"])
@@ -27,8 +28,9 @@ function App() {
 
   return (
     <div className='App'>
+      <Navbar />
       
-      <h1 style={{ textAlign: 'center', color: '#1f7a5a' }}>مبادرة نقطة وصل</h1>
+      <h1>مبادرة نقطة وصل</h1>
 
       <ImpactCounters />
       
@@ -57,11 +59,6 @@ function App() {
         <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
       ))}
 
-      {/* <About aboutTitle={aboutTitle} aboutContent={aboutContent} />
-      <About aboutTitle="ما الذي نوفره؟" aboutContent={`- مساحة هادئة للمذاكرة
-      - إنترنت مستقر ومنظومة طاقة شمسية`} />
-      <h1>قائمة مهامي</h1> */}
-      {/* هنا سنضغ المكونات لاحقا */}
       <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="... اكتب مهمة جديدة" />
       <button onClick={() => inputValue && addTask(inputValue)}>اضافة مهمة تجريبية</button>
       <ul>

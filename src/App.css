@@ -1,124 +1,159 @@
-/* 1. إعدادات عامة للمتصفح */
+/* =========================================
+   1. الإعدادات العامة للهوية البصرية
+   ========================================= */
+:root {
+  --primary-green: #1f7a5a;
+  --wheat-color: wheat;
+  --gold-color: gold;
+  --bg-light: #f4f4f4;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4; /* خلفية فاتحة تريح العين للقراءة */
-  direction: rtl; /* دعم اللغة العربية */
+  background-color: var(--bg-light);
+  direction: rtl;
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* 2. تنسيق الحاوية الرئيسية (App) */
 .App {
-  max-width: 850px; /* عرض مناسب جداً للمقالات والمبادرات */
-  margin: 40px auto;
-  padding: 20px;
-  line-height: 1.8; /* مسافة مريحة بين الأسطر للقراءة */
+  /* max-width: 1040px; */
+   /*زدنا الـ top margin بسبب الـ navbar الثابت*/
+  padding: 0px 80px;
 }
 
-/* 3. تطبيق ألوانك المختارة (نقطة وصل) */
-.about-section {
-  background-color: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* ظل خفيف لإبراز الأقسام */
-  border-right: 8px solid #1f7a5a; /* اللون الذي اخترته للمبادرة */
-}
-
-.about-section h2 {
-  color: #1f7a5a;
-  margin-top: 0;
-}
-/* هذه التنسيقات من عندي */
-.about-section p {
-  color: #000;
-  /* margin-top: 0; */
-}
-
-h1 {
-  color: #1f7a5a;
-  text-align: center;
-}
-
-.App img {
-  max-width: 100%;
-}
-/* هذه التنسيقات من عندي */
-/* تنسيقا الصورة الفردية قبل ما يتم العرض من المصفوفة باستخدام map */
-.hero-image {
-  /* width: 100%;       تجعل الصورة بعرض الحاوية */
-  max-height: 400px; /* لكي لا تأخذ مساحة طولية ضخمة */
-  object-fit: cover; /* تحافظ على تناسق الصورة دون تمطيط */
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.main-image-container {
-  text-align: center;
-}
-/* هذه تنسيقات خاصة ب gellary */
-.gallery-grid {
+/* =========================================
+   2. شريط التنقل (Navbar) الجديد
+   ========================================= */
+.navbar {
   display: flex;
-  flex-wrap: wrap; /* هذا يسمح للصور بالنزول لسطر جديد إذا ضاقت الشاشة */
-  gap: 15px;      /* مسافة بين الصور */
-  justify-content: center;
-  margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  background-color: var(--primary-green);
+  color: var(--wheat-color);
+  position: fixed;
+  left: 0; /* تأكيد البدء من اليسار */
+  right: 0; /* تأكيد الوصول لليمين */
+  top: 0;
+  height: 70px; /* تحديد ارتفاع ثابت يحل مشكلة الاختفاء */  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.grid-item {
-  flex: 1 1 250px; /* تعني: تمدد، اتقلص، وليكن حجمك المثالي 250px */
-  max-width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s; /* حركة خفيفة عند التحويم */
+.navbar .container{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.grid-item:hover {
-  transform: scale(1.05); /* تكبير بسيط عند وضع الماوس على الصورة */
+.navbar .navbar-logo h2{
+  margin: 0; 
+  color: var(--wheat-color);
 }
 
-/* 4. تنسيق المهام (Volunteer Tasks) */
-input[type="text"] {
-  padding: 10px;
-  width: 60%;
-  border: 1px solid #ddd;
-  border-radius: 5px 0 0 5px; /* حواف دائرية من جهة واحدة */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-button {
-  background-color: #1f7a5a;
-  color: wheat;
+.navbar-links a {
+  color: var(--wheat-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav-btn {
+  background-color: var(--gold-color);
+  color: var(--primary-green) !important;
+  padding: 5px 15px;
+  border-radius: 5px;
   border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
-button:hover {
-  color: gold;
-  background-color: #165a42;
+h1{
+  color: var(--primary-green);
+  text-align: center;
+  margin-top: 7rem;
 }
-/* Counters Css  */
+
+ 
+/* style={{ textAlign: 'center', color: '#1f7a5a' }} */
+
+
+/* =========================================
+   3. العدادات (Impact Counters)
+   ========================================= */
 .stats-Container {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .stat-Card {
-  background-color: #1f7a5a;
-  color: wheat;
+  background-color: var(--primary-green);
+  color: var(--wheat-color);
   padding: 20px;
   border-radius: 12px;
   text-align: center;
   flex: 1;
+  transition: transform 0.3s;
 }
 
+.stat-Card:hover { transform: translateY(-5px); }
+
 .stat-Card h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin: 0;
-  color: gold;
+  color: var(--gold-color);
+}
+
+/* =========================================
+   4. معرض الصور (Gallery) والأقسام
+   ========================================= */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.grid-item {
+  flex: 1 1 200px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.grid-item:hover { transform: scale(1.03); }
+
+.about-section {
+  background-color: white;
+  color: var(--primary-green);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-right: 8px solid var(--primary-green);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   5. أزرار التحكم والمدخلات
+   ========================================= */
+button {
+  cursor: pointer;
+  background-color: var(--primary-green);
+  color: var(--wheat-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
