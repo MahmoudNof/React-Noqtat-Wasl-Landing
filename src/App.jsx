@@ -29,8 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <div id="navbar"><Navbar /></div>
-<h1 style={{ textAlign: 'center', color: '#1f7a5a', marginTop: '100px' }}>مبادرة نقطة وصل</h1>
+      <div id="navbar" ><Navbar /></div>
+<h1 className="text-rose-600 text-center text-4xl">مبادرة نقطة وصل</h1>
       <div id="impact"><ImpactCounters /></div>
       <div id="gallery"><Gallery images={images} /></div>
       <div id="humanDetail"><HumanDetail /></div>
