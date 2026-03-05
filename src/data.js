@@ -1,3 +1,25 @@
+// استيراد الصور أولاً لضمان عملها بعد الـ Build
+import img1 from "./assets/img1.jpeg";
+import img2 from "./assets/img2.jpeg";
+import img3 from "./assets/img3.jpeg";
+import img4 from "./assets/img4.jpeg";
+import img5 from "./assets/img5.jpeg";
+
+export const galleryData = [
+  { id: 1, url: img1, caption: 'المساحة المتاحة في خانيونس' },
+  { id: 2, url: img2, caption: 'تجهيزات الطاقة الشمسية' },
+  { id: 3, url: img3, caption: 'مكان تجمع الطلاب' },
+  { id: 4, url: img4, caption: 'أطفالنا يتعلمون برغم الركام' },
+  { id: 5, url: img5, caption: 'نقطة وصل - الأمل المستمر' },
+];
+
+// أضفنا هذا القسم ليكون جاهزاً للخطوة القادمة (الأهداف والذهب)
+export const impactStats = [
+  { id: 1, label: 'طالب مستهدف', value: '500+', icon: 'users' },
+  { id: 2, label: 'نقطة طاقة شمسية', value: '5', icon: 'sun' },
+  { id: 3, label: 'تكلفة المرحلة الأولى', value: '$2500', icon: 'dollar' },
+];
+
 const sections = [
   {
     title:"مبادرة نقطة وصل",
@@ -46,5 +68,6 @@ const sections = [
 `
   }
 ];
+export default sections
+
   
-  export default sections
