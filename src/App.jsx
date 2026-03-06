@@ -9,6 +9,7 @@ import Navbar from "./Component/Navbar";
 import Hero from "./Component/Hero";
 import ImageSlider from "./Component/ImageSlider";
 import Impact from "./Component/Impact";
+import Footer from "./Component/Footer";
 // import ImpactCounters from "./Component/ImpactCounters";
 import TaskSystem from "./Component/TaskSystem";
 import About from "./Component/About";
@@ -43,15 +44,18 @@ function App() {
       <div id="impact">
         <Impact stats={impactStats} />
       </div>
+      <div id="footer">
+        <Footer />
+      </div>
       {/* <div id="impact">
         <ImpactCounters />
       </div> */}
       {/* <div id="humanDetail">
         <HumanDetail />
       </div> */}
-      {sections.map((sec, index) => (
+      {/* {sections.map((sec, index) => (
         <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
-      ))}
+      ))} */}
       {/* <div id="taskSystem">
         <TaskSystem
           tasks={tasks}
