@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   // رابط الواتساب مع رسالة تلقائية
-  const whatsappNumber = "970598726980"; // ضع رقمك هنا بالصيغة الدولية
+  const whatsappNumber = "972598726980"; // ضع رقمك هنا بالصيغة الدولية
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("مرحباً، أود الاستفسار عن مبادرة نقطة وصل وكيفية المساهمة")}`;
 
   return (
