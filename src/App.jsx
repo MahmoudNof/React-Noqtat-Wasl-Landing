@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 // استيراد الصور
-import { galleryData } from "./data";
-import { impactStats } from "./data"
+import { galleryData, roadMapSteps } from "./data";
+import { impactStats } from "./data";
+
 // استيراد المكونات
 import Navbar from "./Component/Navbar";
 import Hero from "./Component/Hero";
@@ -13,6 +14,7 @@ import TaskSystem from "./Component/TaskSystem";
 import About from "./Component/About";
 import HumanDetail from "./Component/HumanDetail";
 import sections from "./data";
+import Roadmap from "./Component/Roadmap";
 
 function App() {
   const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"]);
@@ -35,19 +37,22 @@ function App() {
       <div id="gallery">
         <ImageSlider photos = {galleryData} />
       </div>
+      <div>
+        <Roadmap steps={roadMapSteps}/>
+      </div>
       <div id="impact">
         <Impact stats={impactStats} />
       </div>
       {/* <div id="impact">
         <ImpactCounters />
       </div> */}
-      <div id="humanDetail">
+      {/* <div id="humanDetail">
         <HumanDetail />
-      </div>
+      </div> */}
       {sections.map((sec, index) => (
         <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
       ))}
-      <div id="taskSystem">
+      {/* <div id="taskSystem">
         <TaskSystem
           tasks={tasks}
           inputValue={inputValue}
@@ -55,7 +60,7 @@ function App() {
           addTask={addTask}
           deleteTask={deleteTask}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

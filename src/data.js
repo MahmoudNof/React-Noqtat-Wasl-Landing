@@ -13,11 +13,38 @@ export const galleryData = [
   { id: 5, url: img5, caption: 'نقطة وصل - الأمل المستمر' },
 ];
 
-// أضفنا هذا القسم ليكون جاهزاً للخطوة القادمة (الأهداف والذهب)
+// استبدل مصفوفة impactStats الحالية بهذا التعديل
 export const impactStats = [
   { id: 1, label: 'طالب مستهدف', value: '500+', icon: 'users' },
-  { id: 2, label: 'نقطة طاقة شمسية', value: '5', icon: 'sun' },
-  { id: 3, label: 'تكلفة المرحلة الأولى', value: '$2500', icon: 'dollar' },
+  { id: 2, label: 'تجهيز الهيكل والبناء', value: '$1200', icon: 'home' },
+  { id: 3, label: 'الطاقة والإنترنت', value: '$1300', icon: 'sun' },
+];
+// أضفنا هذا القسم ليكون جاهزاً للخطوة القادمة (الأهداف والذهب)
+// export const impactStats = [
+//   { id: 1, label: 'طالب مستهدف', value: '500+', icon: 'users' },
+//   { id: 2, label: 'نقطة طاقة شمسية', value: '5', icon: 'sun' },
+//   { id: 3, label: 'تكلفة المرحلة الأولى', value: '$2500', icon: 'dollar' },
+// ];
+
+export const roadMapSteps = [
+  { 
+    id: 1, 
+    title: "تأمين الموقع", 
+    desc: "تم حجز وتأمين المساحة الميدانية في خانيونس لبدء العمل.", 
+    status: "done" 
+  },
+  { 
+    id: 2, 
+    title: "الإنشاء والتجهيز", 
+    desc: "بناء الهيكل وتوفير المقاعد الدراسية حسب الموارد المتاحة.", 
+    status: "active" 
+  },
+  { 
+    id: 3, 
+    title: "التشغيل والتمكين", 
+    desc: "تركيب الطاقة الشمسية، الإنترنت الفضائي، واستقبال الطلاب.", 
+    status: "pending" 
+  }
 ];
 
 const sections = [
