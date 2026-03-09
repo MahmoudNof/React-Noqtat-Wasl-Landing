@@ -5,6 +5,14 @@ import img3 from "./assets/img3.jpeg";
 import img4 from "./assets/img4.jpeg";
 import img5 from "./assets/img5.jpeg";
 
+export const navLinks = [
+  { id: 1, name: "الرئيسية", href: "#hero" },
+  { id: 2, name: "الميدان", href: "#gallery" },
+  { id: 3, name: "خارطة الطريق", href: "#roadmap" },
+  { id: 4, name: "الاحتياجات", href: "#needs" },
+  { id: 5, name: "عن المبادرة", href: "#about" },
+];
+
 export const galleryData = [
   { id: 1, url: img1, caption: 'المساحة المتاحة في خانيونس' },
   { id: 2, url: img2, caption: 'المساحة تم تامينها' },

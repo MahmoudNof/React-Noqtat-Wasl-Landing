@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({links}) => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
       <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
@@ -15,16 +15,14 @@ const Navbar = () => {
         </div>
 
         {/* الروابط */}
-        <ul className="flex items-center gap-6 text-gray-600 font-medium">
-          <li className="hover:text-[#1f7a5a] cursor-pointer transition-colors">
-            <a href="#about">عن المبادرة</a>
-          </li>
-          <li className="hover:text-[#1f7a5a] cursor-pointer transition-colors">
-            <a href="#impact">أثرنا</a>
-          </li>
-          <li className="hidden sm:block hover:text-[#1f7a5a] cursor-pointer transition-colors">
-            <a href="#tasks">المهام</a>
-          </li>
+        <ul className="flex items-center gap-6">
+          {links.map((link) => (
+            <li key={link.id}>
+              <a href={link.href} className="hover:text-[#1f7a5a] transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* زر التبرع */}

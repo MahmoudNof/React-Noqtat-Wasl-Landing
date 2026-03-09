@@ -1,11 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
 body {
   font-family: 'Cairo', sans-serif;
-  direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+  direction: rtl;
 }
-/* سنضيف هنا لاحقاً تنسيقات Swiper (الكاروسيل) */

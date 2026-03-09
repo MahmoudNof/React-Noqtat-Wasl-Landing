@@ -1,7 +1,6 @@
-import { useState } from "react";
 import "./App.css";
 // استيراد الصور
-import { constructionNeeds, galleryData, roadMapSteps } from "./data";
+import { constructionNeeds, galleryData, navLinks, roadMapSteps } from "./data";
 import { impactStats } from "./data";
 
 // استيراد المكونات
@@ -12,17 +11,14 @@ import ImageSlider from "./Component/ImageSlider";
 import Needs from "./Component/Needs";
 import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
-// import ImpactCounters from "./Component/ImpactCounters";
-import TaskSystem from "./Component/TaskSystem";
 import About from "./Component/About";
-import HumanDetail from "./Component/HumanDetail";
 import sections from "./data";
 
 function App() {
   return (
     <div className="App">
       <div id="navbar">
-        <Navbar />
+        <Navbar links={navLinks} />
       </div>
       <div id="hero">
         <Hero />
@@ -30,7 +26,7 @@ function App() {
       <div id="gallery">
         <ImageSlider photos = {galleryData} />
       </div>
-      <div>
+      <div id="roadmap">
         <Roadmap steps={roadMapSteps}/>
       </div>
       <div id="needs">
@@ -45,15 +41,6 @@ function App() {
       <div id="footer">
         <Footer />
       </div>
-      {/* <div id="impact">
-        <ImpactCounters />
-      </div> */}
-      {/* <div id="humanDetail">
-        <HumanDetail />
-      </div> */}
-      {/* {sections.map((sec, index) => (
-        <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
-      ))} */}
     </div>
   );
 }
