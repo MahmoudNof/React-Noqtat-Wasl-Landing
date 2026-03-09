@@ -7,17 +7,24 @@ import img5 from "./assets/img5.jpeg";
 
 export const galleryData = [
   { id: 1, url: img1, caption: 'المساحة المتاحة في خانيونس' },
-  { id: 2, url: img2, caption: 'تجهيزات الطاقة الشمسية' },
-  { id: 3, url: img3, caption: 'مكان تجمع الطلاب' },
-  { id: 4, url: img4, caption: 'أطفالنا يتعلمون برغم الركام' },
+  { id: 2, url: img2, caption: 'المساحة تم تامينها' },
+  { id: 3, url: img3, caption: 'نقطة وصــل تجمع الطلاب' },
+  { id: 4, url: img4, caption: 'بسواعدكم نعمرها' },
   { id: 5, url: img5, caption: 'نقطة وصل - الأمل المستمر' },
 ];
+
+export const constructionNeeds = [
+  { id: 1, item: "أعمدة حديد (زاوية)", quantity: 7, icon: "column", status: "pending", progress: 20 },
+  { id: 2, item: "جسور حديدية", quantity: 4, icon: "bridge", status: "urgent", progress: 0 },
+  { id: 3, item: "ألواح زينكو / شوادر", quantity: "تغطية كاملة", icon: "roof", status: "secured", progress: 100 },
+  { id: 4, item: "قواعد تثبيت", quantity: 14, icon: "base", status: "pending", progress: 50 },
+];  
 
 // استبدل مصفوفة impactStats الحالية بهذا التعديل
 export const impactStats = [
   { id: 1, label: 'طالب مستهدف', value: '500+', icon: 'users' },
-  { id: 2, label: 'تجهيز الهيكل والبناء', value: '$1200', icon: 'home' },
-  { id: 3, label: 'الطاقة والإنترنت', value: '$1300', icon: 'sun' },
+  { id: 2, label: 'تجهيز الهيكل والبناء', value: '$1500', icon: 'home' },
+  { id: 3, label: 'الطاقة والإنترنت', value: '$2000', icon: 'sun' },
 ];
 // أضفنا هذا القسم ليكون جاهزاً للخطوة القادمة (الأهداف والذهب)
 // export const impactStats = [

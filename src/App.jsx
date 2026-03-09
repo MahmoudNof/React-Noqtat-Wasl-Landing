@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./App.css";
 // استيراد الصور
-import { galleryData, roadMapSteps } from "./data";
+import { constructionNeeds, galleryData, roadMapSteps } from "./data";
 import { impactStats } from "./data";
 
 // استيراد المكونات
 import Navbar from "./Component/Navbar";
 import Hero from "./Component/Hero";
+import Roadmap from "./Component/Roadmap";
 import ImageSlider from "./Component/ImageSlider";
+import Needs from "./Component/Needs";
 import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
 // import ImpactCounters from "./Component/ImpactCounters";
@@ -15,18 +17,8 @@ import TaskSystem from "./Component/TaskSystem";
 import About from "./Component/About";
 import HumanDetail from "./Component/HumanDetail";
 import sections from "./data";
-import Roadmap from "./Component/Roadmap";
 
 function App() {
-  const [tasks, setTasks] = useState(["تعلم اساسيات رياكت"]);
-  const [inputValue, setInputValue] = useState("");
-  const addTask = (text) => {
-    setTasks([text, ...tasks]);
-  };
-  const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
-  };
-
   return (
     <div className="App">
       <div id="navbar">
@@ -40,6 +32,12 @@ function App() {
       </div>
       <div>
         <Roadmap steps={roadMapSteps}/>
+      </div>
+      <div id="needs">
+        <Needs needs={constructionNeeds} />
+      </div>
+      <div id="about">
+        <About sections={sections} />
       </div>
       <div id="impact">
         <Impact stats={impactStats} />
@@ -56,15 +54,6 @@ function App() {
       {/* {sections.map((sec, index) => (
         <About key={index} aboutTitle={sec.title} aboutContent={sec.content} />
       ))} */}
-      {/* <div id="taskSystem">
-        <TaskSystem
-          tasks={tasks}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          addTask={addTask}
-          deleteTask={deleteTask}
-        />
-      </div> */}
     </div>
   );
 }
