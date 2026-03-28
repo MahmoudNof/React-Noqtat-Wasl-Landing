@@ -32,9 +32,9 @@ function App() {
       <div id="needs">
         <Needs needs={constructionNeeds} />
       </div>
-      <div id="about">
+      {/* <div id="about">
         <About sections={sections} />
-      </div>
+      </div> */}
       <div id="impact">
         <Impact stats={impactStats} />
       </div>
