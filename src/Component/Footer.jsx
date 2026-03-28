@@ -5,7 +5,7 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { navLinks } from "../data";
+import { navLinks } from "../data.jsx";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 

@@ -1,7 +1,7 @@
 import "./App.css";
 // استيراد الصور
-import { constructionNeeds, galleryData, navLinks, roadMapSteps } from "./data";
-import { impactStats } from "./data";
+import { constructionNeeds, galleryData, navLinks, roadMapSteps } from "./data.jsx";
+import { impactStats } from "./data.jsx";
 
 // استيراد المكونات
 import Navbar from "./Component/Navbar";
@@ -12,7 +12,7 @@ import Needs from "./Component/Needs";
 import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
 import About from "./Component/About";
-import sections from "./data";
+import sections from "./data.jsx";
 
 function App() {
   return (

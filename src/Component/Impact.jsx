@@ -21,8 +21,12 @@ const Impact = ({ stats }) => {
             <div
               key={stat.id}
               className="p-10 rounded-3xl bg-white border-2 border-gray-50 hover:border-[#D4AF37] shadow-xl transition-all duration-300 ease-in-out
- group"
+              group"
             >
+              {/* هنا يتم عرض الأيقونة التي تم تمريرها من data.js */}
+          <div className="mb-6 flex justify-center text-[#D4AF37] group-hover:scale-110 transition-transform">
+            {stat.icon}
+          </div>
               {/* الرقم باللون الذهبي */}
               <h3 className="text-5xl font-black text-[#D4AF37] mb-3 group-hover:scale-110 transition-transform">
                 {stat.value}
