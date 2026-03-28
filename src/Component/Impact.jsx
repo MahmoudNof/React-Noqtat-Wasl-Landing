@@ -1,33 +1,45 @@
 import React from "react";
 
 const Impact = ({ stats }) => {
-    // طبقة حماية للتأكد من أن البيانات وصلت
-    if (!stats) return null;
+  // طبقة حماية للتأكد من أن البيانات وصلت
+  if (!stats) return null;
 
-    return (
-        <section className="py-20 bg-white">
-            <div className="max-w-6xl mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-2xl font-bold text-gray-500 mb-2">ميزانية التشغيل المقدرة</h2>
-                    <p className="text-gray-400 text-sm italic">المرحلة الأولى: التأسيس والتشغيل</p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    {stats.map((stat) => (
-                        <div key={stat.id} className="p-10 rounded-3xl bg-white border-2 border-gray-50 hover:border-[#D4AF37] shadow-xl transition-all duration-300 group">
-                            {/* الرقم باللون الذهبي */}
-                            <h3 className="text-5xl font-black text-[#D4AF37] mb-3 group-hover:scale-110 transition-transform">
-                                {stat.value}
-                            </h3>
-                            <p className="text-gray-800 font-bold text-xl mb-2">{stat.label}</p>
-                            {/* تم تصحيح الخطأ المطبعي هنا */}
-                            <p className="text-gray-400 text-sm font-medium tracking-wide">هدف التمويل</p>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl font-bold text-gray-500 mb-2">
+            ميزانية التشغيل المقدرة
+          </h2>
+          <p className="text-gray-400 text-sm italic">
+            المرحلة الأولى: التأسيس والتشغيل
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {stats.map((stat) => (
+            <div
+              key={stat.id}
+              className="p-10 rounded-3xl bg-white border-2 border-gray-50 hover:border-[#D4AF37] shadow-xl transition-all duration-300 ease-in-out
+ group"
+            >
+              {/* الرقم باللون الذهبي */}
+              <h3 className="text-5xl font-black text-[#D4AF37] mb-3 group-hover:scale-110 transition-transform">
+                {stat.value}
+              </h3>
+              <p className="text-gray-800 font-bold text-xl mb-2">
+                {stat.label}
+              </p>
+              {/* تم تصحيح الخطأ المطبعي هنا */}
+              <p className="text-gray-400 text-sm font-medium tracking-wide">
+                هدف التمويل
+              </p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Impact;
