@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // استيراد المكتبة
-const Navbar = ({ links }) => {
+import { translations } from "../data";
+
+const Navbar = ({ lang, setLang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
+
+  const t = translations[lang].navbar;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -41,7 +45,7 @@ const Navbar = ({ links }) => {
   };
 
   const itemVariants = {
-    closed: { x: -20, opacity: 0 },
+    closed: { x: lang === "ar" ? 20 : -20, opacity: 0 },
     open: { x: 0, opacity: 1 },
   };
   return (
@@ -53,16 +57,16 @@ const Navbar = ({ links }) => {
         {/* اللوجو أو اسم المبادرة */}
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[#1f7a5a] rounded-lg flex items-center justify-center text-white font-bold text-xl">
-            ن
+            {t.logo}
           </div>
           <span className="text-xl font-bold text-[#1f7a5a] hidden md:block">
-            نقطة وصل
+            {t.title}
           </span>
         </div>
 
         {/* الروابط */}
         <ul className="hidden md:flex items-center gap-6">
-          {links.map((link) => (
+          {t.links.map((link) => (
             <li key={link.id}>
               <a
                 href={link.href}
@@ -74,15 +78,32 @@ const Navbar = ({ links }) => {
             </li>
           ))}
         </ul>
-
-        {/* زر التبرع */}
-        <button
-          className="hidden md:block bg-[#1f7a5a] text-white px-6 py-2 rounded-full font-bold hover:bg-[#165a42] transition-all duration-300 ease-in-out
-  transform hover:scale-105 shadow-md"
-        >
-          تبرع الآن
-        </button>
-
+        <div className="flex items-center gap-4">
+          {/* زر تبديل اللغة - "اللمسة اللطيفة" */}
+          <div className="flex gap-2 mr-4">
+            {["ar", "de", "en"].map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`px-2 py-1 text-xs font-bold rounded border transition-all ${
+                  lang === l
+                    ? "bg-[#1f7a5a] text-white border-[#1f7a5a]"
+                    : "text-[#1f7a5a] border-gray-200 hover:bg-gray-50"
+                }`}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          {/* تنظيف الناف من اي hardcoded و تعديل وتهيئة ملفة data للتجهيز لكل اللغات ال 3  */}
+          {/* زر التبرع */}
+          <button
+            className="hidden md:block bg-[#1f7a5a] text-white px-6 py-2 rounded-full font-bold hover:bg-[#165a42] transition-all duration-300 ease-in-out
+            transform hover:scale-105 shadow-md"
+          >
+            {t.donate}
+          </button>
+        </div>
         {/* زر المينيو - Mobile */}
         <button
           className="md:hidden text-2xl hover:text-[#1f7a5a] "
@@ -108,7 +129,7 @@ const Navbar = ({ links }) => {
             className="md:hidden bg-white shadow-md px-4 py-4 space-y-4 overflow-hidden"
           >
             <motion.ul className="flex flex-col gap-4">
-              {links.map((link) => (
+              {t.links.map((link) => (
                 <motion.li key={link.id} variants={itemVariants}>
                   <a
                     href={link.href}
@@ -125,7 +146,7 @@ const Navbar = ({ links }) => {
               variants={itemVariants}
               className="w-full bg-[#1f7a5a] text-white py-2 rounded-full font-bold shadow-sm active:scale-95 transition-transform"
             >
-              تبرع الآن
+              {t.donate}
             </motion.button>
           </motion.div>
         )}

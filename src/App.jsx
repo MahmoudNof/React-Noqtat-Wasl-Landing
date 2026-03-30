@@ -1,7 +1,10 @@
 import "./App.css";
+import React,{ useState } from "react";
 // استيراد الصور
 import { constructionNeeds, galleryData, navLinks, roadMapSteps } from "./data.jsx";
 import { impactStats } from "./data.jsx";
+import { translations } from "./data";
+
 
 // استيراد المكونات
 import Navbar from "./Component/Navbar";
@@ -11,35 +14,38 @@ import ImageSlider from "./Component/ImageSlider";
 import Needs from "./Component/Needs";
 import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
-import About from "./Component/About";
-import sections from "./data.jsx";
+
+
 
 function App() {
+const [lang, setLang] = useState("ar");
+const t = translations[lang];
   return (
-    <div className="App">
+    <div className="App" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div id="navbar">
-        <Navbar links={navLinks} />
+        <Navbar 
+          lang={lang} 
+          setLang={setLang} 
+          links={t.navbar.links}
+          content={t.navbar} />
       </div>
       <div id="hero">
-        <Hero />
+        <Hero lang={lang} />
       </div>
       <div id="gallery">
-        <ImageSlider photos = {galleryData} />
+        <ImageSlider photos = {galleryData} lang={lang} />
       </div>
       <div id="roadmap">
-        <Roadmap steps={roadMapSteps}/>
+        <Roadmap steps={roadMapSteps} lang={lang}/>
       </div>
       <div id="needs">
-        <Needs needs={constructionNeeds} />
+        <Needs needs={constructionNeeds} lang={lang} />
       </div>
-      {/* <div id="about">
-        <About sections={sections} />
-      </div> */}
       <div id="impact">
-        <Impact stats={impactStats} />
+        <Impact stats={t.impact} lang={lang} />
       </div>
       <div id="footer">
-        <Footer />
+        <Footer lang={lang} />
       </div>
     </div>
   );

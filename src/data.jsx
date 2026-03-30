@@ -1,4 +1,5 @@
 // استيراد الصور أولاً لضمان عملها بعد الـ Build
+import { title } from "framer-motion/client";
 import img1 from "./assets/img1.jpeg";
 import img2 from "./assets/img2.jpeg";
 import img3 from "./assets/img3.jpeg";
@@ -7,6 +8,61 @@ import img5 from "./assets/img5.jpeg";
 
 import { FaUsers, FaHome, FaSun } from "react-icons/fa";
 
+export const translations = {
+  ar: {
+    navbar: {
+      logo: "ن",
+      title: "نقطة وصل",
+      donate: "ساهم",
+      links: [
+        { id: 1, name: "الرئيسية", href: "#hero", showInFooter: true },
+        { id: 2, name: "الميدان", href: "#gallery", showInFooter: true },
+        { id: 3, name: "خارطة الطريق", href: "#roadmap", showInFooter: true },
+        { id: 4, name: "الاحتياجات", href: "#needs", showInFooter: true },
+        { id: 5, name: "تواصل معنا", href: "#footer", showInFooter: false },
+      ]
+    },
+    impact: [
+      { id: 1, label: "طالب مستهدف", value: "+500", icon: <FaUsers size={45} /> },
+      { id: 2, label: "تجهيز الهيكل والبناء", value: "$6000", icon: <FaHome size={45}/> },
+      { id: 3, label: "الطاقة والإنترنت", value: "$4000", icon: <FaSun size={45}/> },
+    ],
+    
+  },
+  de: {
+    navbar: {
+      logo: "N",
+      title: "Noqtat Wasl",
+      donate: "Jetzt Spenden",
+      links: [
+        { id: 1, name: "Startseite", href: "#hero", showInFooter: true },
+        { id: 2, name: "Vor Ort", href: "#gallery", showInFooter: true },
+          { id: 3, name: "Roadmap", href: "#roadmap", showInFooter: true },
+          { id: 4, name: "Bedarf", href: "#needs", showInFooter: true },
+          { id: 5, name: "Kontakt", href: "#footer", showInFooter: false },
+      ]
+    },
+    impact: [
+      { id: 1, label: "Zielschüler", value: "500+", icon: <FaUsers size={45} /> },
+      { id: 2, label: "Struktur & Bau", value: "$6000", icon: <FaHome size={45}/> },
+      { id: 3, label: "Energie & Internet", value: "$4000", icon: <FaSun size={45}/> },
+    ],
+  },
+  en: {
+    navbar: {
+      logo: "N",
+      title: "Noqtat Wasl",
+      donate: "Donate Now",
+      links: [
+        { id: 1, name: "Home", href: "#hero" },
+        { id: 2, name: "Field", href: "#gallery" },
+        { id: 3, name: "Roadmap", href: "#roadmap" },
+        { id: 4, name: "Needs", href: "#needs" },
+        { id: 5, name: "Contact Us", href: "#footer" },
+      ]
+    },
+  }
+};
 export const navLinks = [
   { id: 1, name: "الرئيسية", href: "#hero", showInFooter: true },
   { id: 2, name: "الميدان", href: "#gallery", showInFooter: true },
@@ -69,21 +125,15 @@ export const impactStats = [
     id: 2,
     label: "تجهيز الهيكل والبناء",
     value: "$6000",
-    icon: <FaHome size={45}/> 
+    icon: <FaHome size={45} />,
   },
   {
     id: 3,
     label: "الطاقة والإنترنت",
     value: "$4000",
-    icon: <FaSun size={45}/>
+    icon: <FaSun size={45} />,
   },
 ];
-// أضفنا هذا القسم ليكون جاهزاً للخطوة القادمة (الأهداف والذهب)
-// export const impactStats = [
-//   { id: 1, label: 'طالب مستهدف', value: '500+', icon: 'users' },
-//   { id: 2, label: 'نقطة طاقة شمسية', value: '5', icon: 'sun' },
-//   { id: 3, label: 'تكلفة المرحلة الأولى', value: '$2500', icon: 'dollar' },
-// ];
 
 export const roadMapSteps = [
   {
@@ -106,7 +156,7 @@ export const roadMapSteps = [
   },
 ];
 
-const sections = [
+export const sections = [
   {
     title: "مبادرة نقطة وصل",
     content: `مساحة تعليمية مجتمعية تُعيد للطلاب حقهم في التعلّم، وتمنحهم بيئة آمنة ومستقرة للاستمرار رغم كل الظروف.`,
@@ -154,4 +204,4 @@ const sections = [
 `,
   },
 ];
-export default sections;
+
