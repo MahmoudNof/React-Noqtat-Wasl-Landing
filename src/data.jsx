@@ -22,6 +22,12 @@ export const translations = {
         { id: 5, name: "تواصل معنا", href: "#footer", showInFooter: false },
       ]
     },
+    hero: {
+    title: "لأن التعليم لا ينتظر.. نمدُّ جسور الأمل",
+    subtitle: "من قلب خانيونس، ننشئ مساحة تعليمية تعمل بالطاقة الشمسية لضمان استمرار مئات الطلاب في مسيرتهم التعليمية رغم التحديات.",
+    mainBtn: "كن جزءاً من البناء",
+    secondaryBtn: "تعرف على المبادرة",
+    },
     impact: [
       { id: 1, label: "طالب مستهدف", value: "+500", icon: <FaUsers size={45} /> },
       { id: 2, label: "تجهيز الهيكل والبناء", value: "$6000", icon: <FaHome size={45}/> },
@@ -42,6 +48,12 @@ export const translations = {
           { id: 5, name: "Kontakt", href: "#footer", showInFooter: false },
       ]
     },
+    hero: {
+    title: "Weil Bildung nicht wartet.. bauen wir Brücken der Hoffnung",
+    subtitle: "Im Herzen von Khan Younis schaffen wir einen solarbetriebenen Lernraum, um Hunderten von Schülern trotz aller Herausforderungen den Weg in die Zukunft zu ebnen.",
+    mainBtn: "Werde Teil des Aufbaus",
+    secondaryBtn: "Über die Initiative",
+  },
     impact: [
       { id: 1, label: "Zielschüler", value: "500+", icon: <FaUsers size={45} /> },
       { id: 2, label: "Struktur & Bau", value: "$6000", icon: <FaHome size={45}/> },
@@ -61,6 +73,12 @@ export const translations = {
         { id: 5, name: "Contact Us", href: "#footer" },
       ]
     },
+    hero: {
+    title: "Because Education Doesn't Wait.. We Build Bridges of Hope",
+    subtitle: "From the heart of Khan Younis, we are creating a solar-powered educational space to ensure hundreds of students continue their journey despite the challenges.",
+    mainBtn: "Be Part of the Build",
+    secondaryBtn: "Learn More",
+  },
   }
 };
 export const navLinks = [
