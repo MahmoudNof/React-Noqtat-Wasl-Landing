@@ -1,9 +1,8 @@
 import "./App.css";
 import React,{ useState } from "react";
 // استيراد الصور
-import { constructionNeeds, galleryData, navLinks, roadMapSteps } from "./data.jsx";
-import { impactStats } from "./data.jsx";
 import { translations } from "./data";
+import { constructionNeeds } from "./data.jsx";
 
 
 // استيراد المكونات
@@ -33,10 +32,10 @@ const t = translations[lang];
         <Hero lang={lang} />
       </div>
       <div id="gallery">
-        <ImageSlider photos = {galleryData} lang={lang} />
+        <ImageSlider lang={lang} />
       </div>
       <div id="roadmap">
-        <Roadmap steps={roadMapSteps} lang={lang}/>
+        <Roadmap  lang={lang}/>
       </div>
       <div id="needs">
         <Needs needs={constructionNeeds} lang={lang} />

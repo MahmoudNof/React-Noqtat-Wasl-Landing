@@ -1,5 +1,4 @@
 // استيراد الصور أولاً لضمان عملها بعد الـ Build
-import { title } from "framer-motion/client";
 import img1 from "./assets/img1.jpeg";
 import img2 from "./assets/img2.jpeg";
 import img3 from "./assets/img3.jpeg";
@@ -20,20 +19,66 @@ export const translations = {
         { id: 3, name: "خارطة الطريق", href: "#roadmap", showInFooter: true },
         { id: 4, name: "الاحتياجات", href: "#needs", showInFooter: true },
         { id: 5, name: "تواصل معنا", href: "#footer", showInFooter: false },
-      ]
+      ],
     },
     hero: {
-    title: "لأن التعليم لا ينتظر.. نمدُّ جسور الأمل",
-    subtitle: "من قلب خانيونس، ننشئ مساحة تعليمية تعمل بالطاقة الشمسية لضمان استمرار مئات الطلاب في مسيرتهم التعليمية رغم التحديات.",
-    mainBtn: "كن جزءاً من البناء",
-    secondaryBtn: "تعرف على المبادرة",
+      title: "لأن التعليم لا ينتظر.. نمدُّ جسور الأمل",
+      subtitle:
+        "من قلب خانيونس، ننشئ مساحة تعليمية تعمل بالطاقة الشمسية لضمان استمرار مئات الطلاب في مسيرتهم التعليمية رغم التحديات.",
+      mainBtn: "كن جزءاً من البناء",
+      secondaryBtn: "تعرف على المبادرة",
     },
-    impact: [
-      { id: 1, label: "طالب مستهدف", value: "+500", icon: <FaUsers size={45} /> },
-      { id: 2, label: "تجهيز الهيكل والبناء", value: "$6000", icon: <FaHome size={45}/> },
-      { id: 3, label: "الطاقة والإنترنت", value: "$4000", icon: <FaSun size={45}/> },
-    ],
-    
+    gallery: {
+      title: "معرض",
+      highlight: "الميدان",
+      description: "توثيق حي للمساحة المتاحة في خانيونس وخطواتنا الأولى",
+      // ترجمة وصف الصور داخل المعرض
+      photos: [
+        { id: 1, caption: "المساحة المتاحة في خانيونس" },
+        { id: 2, caption: "المساحة تم تأمينها" },
+        { id: 3, caption: "نقطة وصــل تجمع الطلاب" },
+        { id: 4, caption: "بسواعدكم نعمرها" },
+        { id: 5, caption: "نقطة وصل - الأمل المستمر" },
+      ],
+    },
+    roadmap: {
+      title: "خارطة طريق",
+      highlight: "المبادرة",
+      steps: [
+        {
+          id: 1,
+          title: "تأمين الموقع",
+          desc: "تم حجز وتأمين المساحة الميدانية في خانيونس لبدء العمل.",
+          status: "done",
+        },
+        {
+          id: 2,
+          title: "الإنشاء والتجهيز",
+          desc: "بناء الهيكل وتوفير المقاعد الدراسية حسب الموارد المتاحة.",
+          status: "active",
+        },
+        {
+          id: 3,
+          title: "التشغيل والتمكين",
+          desc: "تركيب الطاقة الشمسية، الإنترنت الفضائي، واستقبال الطلاب.",
+          status: "pending",
+        },
+      ],
+    },
+    footer: {
+      location: "موقع المبادرة - خانيونس",
+      titleMain: "نقطة",
+      titleSub: "وصل",
+      description:
+        "مبادرة تهدف لربط الطلاب بفرصهم التعليمية من خلال توفير بيئة تقنية متكاملة وطاقة مستدامة وسط أصعب الظروف.",
+      quickAccess: "وصول سريع",
+      leaveImpact: "اترك أثراً",
+      whatsapp: "تواصل عبر واتساب",
+      telegram: "قناة التليجرام",
+      rights: "جميع الحقوق محفوظة لمبادرة نقطة وصل",
+      madeWith: "صُنع بشغف في غزة",
+      country: "فلسطين 🇵🇸",
+    },
   },
   de: {
     navbar: {
@@ -43,22 +88,69 @@ export const translations = {
       links: [
         { id: 1, name: "Startseite", href: "#hero", showInFooter: true },
         { id: 2, name: "Vor Ort", href: "#gallery", showInFooter: true },
-          { id: 3, name: "Roadmap", href: "#roadmap", showInFooter: true },
-          { id: 4, name: "Bedarf", href: "#needs", showInFooter: true },
-          { id: 5, name: "Kontakt", href: "#footer", showInFooter: false },
-      ]
+        { id: 3, name: "Roadmap", href: "#roadmap", showInFooter: true },
+        { id: 4, name: "Bedarf", href: "#needs", showInFooter: true },
+        { id: 5, name: "Kontakt", href: "#footer", showInFooter: false },
+      ],
     },
     hero: {
-    title: "Weil Bildung nicht wartet.. bauen wir Brücken der Hoffnung",
-    subtitle: "Im Herzen von Khan Younis schaffen wir einen solarbetriebenen Lernraum, um Hunderten von Schülern trotz aller Herausforderungen den Weg in die Zukunft zu ebnen.",
-    mainBtn: "Werde Teil des Aufbaus",
-    secondaryBtn: "Über die Initiative",
-  },
-    impact: [
-      { id: 1, label: "Zielschüler", value: "500+", icon: <FaUsers size={45} /> },
-      { id: 2, label: "Struktur & Bau", value: "$6000", icon: <FaHome size={45}/> },
-      { id: 3, label: "Energie & Internet", value: "$4000", icon: <FaSun size={45}/> },
-    ],
+      title: "Weil Bildung nicht wartet.. bauen wir Brücken der Hoffnung",
+      subtitle:
+        "Im Herzen von Khan Younis schaffen wir einen solarbetriebenen Lernraum, um Hunderten von Schülern trotz aller Herausforderungen den Weg in die Zukunft zu ebnen.",
+      mainBtn: "Werde Teil des Aufbaus",
+      secondaryBtn: "Über die Initiative",
+    },
+    gallery: {
+      title: "Galerie des",
+      highlight: "Feldes",
+      description:
+        "Eine Live-Dokumentation des verfügbaren Raums in Khan Younis und unserer ersten Schritte",
+      photos: [
+        { id: 1, caption: "Der verfügbare Raum in Khan Younis" },
+        { id: 2, caption: "Der Raum wurde gesichert" },
+        { id: 3, caption: "Noqtat Wasl bringt Studenten zusammen" },
+        { id: 4, caption: "Mit eurer Hilfe bauen wir es auf" },
+        { id: 5, caption: "Noqtat Wasl - Die fortدauernde Hoffnung" },
+      ],
+    },
+    roadmap: {
+      title: "Roadmap der",
+      highlight: "Initiative",
+      steps: [
+        {
+          id: 1,
+          title: "Sicherung des Standorts",
+          desc: "Der Raum in Khan Younis wurde reserviert und gesichert.",
+          status: "done",
+        },
+        {
+          id: 2,
+          title: "Aufbau & Ausstattung",
+          desc: "Bau der Struktur und Bereitstellung von Sitzplätzen.",
+          status: "active",
+        },
+        {
+          id: 3,
+          title: "Betrieb & Ermöglichung",
+          desc: "Installation von Solarstrom, Satelliten-Internet.",
+          status: "pending",
+        },
+      ],
+    },
+    footer: {
+      location: "Initiativstandort - Khan Yunis",
+      titleMain: "Noqtat",
+      titleSub: "Wasl",
+      description:
+        "Eine Initiative, die darauf abzielt, Studenten mit ihren Bildungschancen zu verbinden, indem sie eine integrierte technische Umgebung und nachhaltige Energie unter schwierigsten Bedingungen bereitstellt.",
+      quickAccess: "Schnellzugriff",
+      leaveImpact: "Spuren hinterlassen",
+      whatsapp: "Kontakt per WhatsApp",
+      telegram: "Telegram-Kanal",
+      rights: "Alle Rechte vorbehalten – Noqtat Wasl Initiative",
+      madeWith: "Mit Leidenschaft in Gaza erstellt",
+      country: "Palästina 🇵🇸",
+    },
   },
   en: {
     navbar: {
@@ -66,36 +158,75 @@ export const translations = {
       title: "Noqtat Wasl",
       donate: "Donate Now",
       links: [
-        { id: 1, name: "Home", href: "#hero" },
-        { id: 2, name: "Field", href: "#gallery" },
-        { id: 3, name: "Roadmap", href: "#roadmap" },
-        { id: 4, name: "Needs", href: "#needs" },
-        { id: 5, name: "Contact Us", href: "#footer" },
-      ]
+        { id: 1, name: "Home", href: "#hero", showInFooter: true },
+        { id: 2, name: "Field", href: "#gallery", showInFooter: true },
+        { id: 3, name: "Roadmap", href: "#roadmap", showInFooter: true },
+        { id: 4, name: "Needs", href: "#needs", showInFooter: true },
+        { id: 5, name: "Contact Us", href: "#footer", showInFooter: false },
+      ],
     },
     hero: {
-    title: "Because Education Doesn't Wait.. We Build Bridges of Hope",
-    subtitle: "From the heart of Khan Younis, we are creating a solar-powered educational space to ensure hundreds of students continue their journey despite the challenges.",
-    mainBtn: "Be Part of the Build",
-    secondaryBtn: "Learn More",
+      title: "Because Education Doesn't Wait.. We Build Bridges of Hope",
+      subtitle:
+        "From the heart of Khan Younis, we are creating a solar-powered educational space to ensure hundreds of students continue their journey despite the challenges.",
+      mainBtn: "Be Part of the Build",
+      secondaryBtn: "Learn More",
+    },
+    gallery: {
+      title: "Field",
+      highlight: "Gallery",
+      description:
+        "Live documentation of the available space in Khan Younis and our first steps",
+      photos: [
+        { id: 1, caption: "Available space in Khan Younis" },
+        { id: 2, caption: "The space has been secured" },
+        { id: 3, caption: "Noqtat Wasl brings students together" },
+        { id: 4, caption: "With your support, we build" },
+        { id: 5, caption: "Noqtat Wasl - Continuing Hope" },
+      ],
+    },
+    roadmap: {
+      title: "Project",
+      highlight: "Roadmap",
+      steps: [
+        {
+          id: 1,
+          title: "Site Securing",
+          desc: "The field space in Khan Younis has been secured.",
+          status: "done",
+        },
+        {
+          id: 2,
+          title: "Construction",
+          desc: "Building the structure and providing study seats.",
+          status: "active",
+        },
+        {
+          id: 3,
+          title: "Operation",
+          desc: "Solar power, Satellite Internet, and welcoming students.",
+          status: "pending",
+        },
+      ],
+    },
+    footer: {
+      location: "Initiative Location - Khan Younis",
+      titleMain: "Noqtat",
+      titleSub: "Wasl",
+      description:
+        "An initiative aimed at connecting students with educational opportunities by providing an integrated technical environment and sustainable energy under the harshest conditions.",
+      quickAccess: "Quick Access",
+      leaveImpact: "Leave an Impact",
+      whatsapp: "Contact via WhatsApp",
+      telegram: "Telegram Channel",
+      rights: "All Rights Reserved - Noqtat Wasl Initiative",
+      madeWith: "Made with passion in Gaza",
+      country: "Palestine 🇵🇸",
+    },
   },
-  }
 };
-export const navLinks = [
-  { id: 1, name: "الرئيسية", href: "#hero", showInFooter: true },
-  { id: 2, name: "الميدان", href: "#gallery", showInFooter: true },
-  { id: 3, name: "خارطة الطريق", href: "#roadmap", showInFooter: true },
-  { id: 4, name: "الاحتياجات", href: "#needs", showInFooter: true },
-  { id: 5, name: "تواصل معنا", href: "#footer", showInFooter: false },
-];
 
-export const galleryData = [
-  { id: 1, url: img1, caption: "المساحة المتاحة في خانيونس" },
-  { id: 2, url: img2, caption: "المساحة تم تامينها" },
-  { id: 3, url: img3, caption: "نقطة وصــل تجمع الطلاب" },
-  { id: 4, url: img4, caption: "بسواعدكم نعمرها" },
-  { id: 5, url: img5, caption: "نقطة وصل - الأمل المستمر" },
-];
+export const galleryImages = [img1, img2, img3, img4, img5];
 
 export const constructionNeeds = [
   {
@@ -153,27 +284,6 @@ export const impactStats = [
   },
 ];
 
-export const roadMapSteps = [
-  {
-    id: 1,
-    title: "تأمين الموقع",
-    desc: "تم حجز وتأمين المساحة الميدانية في خانيونس لبدء العمل.",
-    status: "done",
-  },
-  {
-    id: 2,
-    title: "الإنشاء والتجهيز",
-    desc: "بناء الهيكل وتوفير المقاعد الدراسية حسب الموارد المتاحة.",
-    status: "active",
-  },
-  {
-    id: 3,
-    title: "التشغيل والتمكين",
-    desc: "تركيب الطاقة الشمسية، الإنترنت الفضائي، واستقبال الطلاب.",
-    status: "pending",
-  },
-];
-
 export const sections = [
   {
     title: "مبادرة نقطة وصل",
@@ -222,4 +332,3 @@ export const sections = [
 `,
   },
 ];
-

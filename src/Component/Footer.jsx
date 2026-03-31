@@ -5,53 +5,67 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { navLinks } from "../data.jsx";
-const Footer = () => {
+import { translations } from "../data.jsx";
+const Footer = ({ lang }) => {
   const currentYear = new Date().getFullYear();
-
+  const t = translations[lang].footer;
   // رابط الواتساب مع رسالة تلقائية
   const whatsappNumber = "972598726980"; // ضع رقمك هنا بالصيغة الدولية
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("مرحباً، أود الاستفسار عن مبادرة نقطة وصل وكيفية المساهمة")}`;
 
   return (
-    <footer className="bg-[#0f172a] text-gray-300">
+    <footer
+      className="bg-[#0f172a] text-gray-300"
+      style={{ direction: lang === "ar" ? "rtl" : "ltr" }}
+    >
       {/* قسم الموقع الجغرافي (تفاعلي) */}
-      <div className="w-full h-64 bg-gray-200 relative">
+      <div className="w-full h-64 bg-gray-200 relative"
+      style={{ direction: lang === "ar" ? "rtl" : "ltr" }}>
         {/* يمكنك استبدال الرابط أدناه برابط Google Maps الحقيقي لموقعك في خانيونس */}
-        <iframe
-          title="موقع نقطة وصل"
-          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2808.487839335709!2d34.295562149999995!3d31.3464366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIwJzQxLjYiTiAzNMKwMTcnMzUuNSJF!5e1!3m2!1sar!2s!4v1772804132238!5m2!1sar!2s"
-          className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-        <div className="absolute top-4 right-4 bg-white p-3 rounded-lg shadow-lg text-gray-800 flex items-center gap-2 pointer-events-none">
+          <iframe
+            title="موقع نقطة وصل"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2808.487839335709!2d34.295562149999995!3d31.3464366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIwJzQxLjYiTiAzNMKwMTcnMzUuNSJF!5e1!3m2!1sar!2s!4v1772804132238!5m2!1sar!2s"
+            className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+          <div className={`absolute top-4 p-3 rounded-lg shadow-lg bg-white text-gray-800 flex items-center gap-2 pointer-events-none transition-all duration-500
+          ${lang === 'ar' ? 'right-4' : 'left-4'}`}> 
           <FaMapMarkerAlt className="text-[#1f7a5a]" />
-          <span className="text-sm font-bold">موقع المبادرة - خانيونس</span>
+          <span className="text-sm font-bold">{t.location}</span>
         </div>
       </div>
+    
 
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* العمود الأول: الهوية */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">
-              نقطة <span className="text-[#D4AF37]">وصل</span>
+              {t.titleMain} <span className="text-[#D4AF37]">{t.titleSub}</span>
             </h3>
             <p className="text-sm leading-relaxed text-gray-400">
-              مبادرة تهدف لربط الطلاب بفرصهم التعليمية من خلال توفير بيئة تقنية
-              متكاملة وطاقة مستدامة وسط أصعب الظروف.
+              {t.description}
             </p>
           </div>
 
           {/* العمود الثاني: روابط سريعة */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-white border-r-4 border-[#1f7a5a] pr-3">
-              وصول سريع
+            <h4
+              className={`text-lg font-bold text-white mb-4 border-[#1f7a5a] 
+              ${
+                lang === "ar"
+                  ? "border-r-4 pr-3 text-right"
+                  : "border-l-4 pl-3 text-left"
+              }`}
+            >
+              {t.quickAccess}
             </h4>
             <nav className="flex flex-col gap-2 text-sm">
-              {navLinks.filter((link) => link.showInFooter).map((link) => (
+              {translations[lang].navbar.links
+                .filter((link) => link.showInFooter)
+                .map((link) => (
                   <a
                     key={link.id}
                     href={link.href}
@@ -65,8 +79,11 @@ const Footer = () => {
 
           {/* العمود الثالث: تواصل مباشر (جاهز) */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-white border-r-4 border-[#1f7a5a] pr-3">
-              اترك أثراً
+            <h4 className={`text-lg font-bold text-white mb-4 border-[#1f7a5a] 
+              ${lang === 'ar' 
+                ? 'border-r-4 pr-3 text-right' 
+                : 'border-l-4 pl-3 text-left'}`}>
+              {t.leaveImpact}
             </h4>
             <div className="flex flex-col gap-4">
               <a
@@ -76,7 +93,7 @@ const Footer = () => {
                 className="flex items-center gap-3 bg-[#1f7a5a] hover:bg-[#165a42] text-white px-4 py-2 rounded-xl transition-all duration-300 ease-in-out w-fit"
               >
                 <FaWhatsapp size={20} />
-                <span className="text-sm font-bold">تواصل عبر واتساب</span>
+                <span className="text-sm font-bold">{t.whatsapp}</span>
               </a>
 
               <a
@@ -86,7 +103,7 @@ const Footer = () => {
                 className="flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl transition-all duration-300 ease-in-out w-fit"
               >
                 <FaTelegramPlane size={20} />
-                <span className="text-sm font-bold">قناة التليجرام</span>
+                <span className="text-sm font-bold">{t.telegram}</span>
               </a>
             </div>
           </div>
@@ -94,11 +111,13 @@ const Footer = () => {
 
         {/* سطر الحقوق */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {currentYear} جميع الحقوق محفوظة لمبادرة نقطة وصل</p>
+          <p>
+            © {currentYear} {t.rights}
+          </p>
           <div className="flex items-center gap-2">
-            <span>صُنع بشغف في غزة</span>
+            <span>{t.madeWith}</span>
             <span className="text-red-600 animate-pulse">❤️</span>
-            <span className="font-bold">فلسطين 🇵🇸</span>
+            <span className="font-bold">{t.country}</span>
           </div>
         </div>
       </div>

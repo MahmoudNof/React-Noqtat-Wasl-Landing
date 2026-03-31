@@ -1,14 +1,16 @@
 import React from 'react';
+import { translations } from "../data";
 
-const Roadmap = ({ steps }) => {
+const Roadmap = ({lang}) => {
+  const t = translations[lang].roadmap;
+
   return (
     <section className="py-16 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12 font-cairo">
-          خارطة طريق <span className="text-[#1f7a5a]">المبادرة</span>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12 font-cairo">{t.title} <span className="text-[#1f7a5a]">{t.highlight}</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step) => (
+          {t.steps.map((step) => (
             <div key={step.id} className={`p-8 rounded-3xl border-2 transition-all ${
               step.status === 'done' ? 'border-[#1f7a5a] bg-green-50/30' : 
               step.status === 'active' ? 'border-[#D4AF37] shadow-xl scale-105 bg-white' : 
