@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { translations } from "../data";
 
-const Hero = ({ lang }) => {
+const Hero = ({ lang, onOpenModal }) => {
   const t = translations[lang].hero;
 
   // إعدادات أنيميشن الحروف (Typewriter effect)
@@ -55,7 +55,7 @@ const Hero = ({ lang }) => {
           transition={{ delay: 2.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button className="bg-[#1f7a5a] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#165a42] transition-all transform hover:scale-105 shadow-lg">
+          <button onClick={onOpenModal} className="bg-[#1f7a5a] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#165a42] transition-all transform hover:scale-105 shadow-lg">
             {t.mainBtn}
           </button>
           <button className="border-2 border-[#1f7a5a] text-[#1f7a5a] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all">

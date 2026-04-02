@@ -13,10 +13,12 @@ import ImageSlider from "./Component/ImageSlider";
 import Needs from "./Component/Needs";
 import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
+import ContributionModal from "./Component/ContributionModal.jsx";
 
 
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 const [lang, setLang] = useState("ar");
 const t = translations[lang];
   return (
@@ -26,11 +28,18 @@ const t = translations[lang];
           lang={lang} 
           setLang={setLang} 
           links={t.navbar.links}
-          content={t.navbar} />
+          content={t.navbar} 
+          onOpenModal={() => setIsModalOpen(true)}/>
       </div>
       <div id="hero">
-        <Hero lang={lang} />
+        <Hero lang={lang} 
+        onOpenModal={() => setIsModalOpen(true)}/>
       </div>
+      <ContributionModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        lang={lang} 
+      />
       <div id="gallery">
         <ImageSlider lang={lang} />
       </div>
@@ -41,7 +50,7 @@ const t = translations[lang];
         <Needs needs={constructionNeeds} lang={lang} />
       </div>
       <div id="impact">
-        <Impact stats={t.impact} lang={lang} />
+        <Impact lang={lang} />
       </div>
       <div id="footer">
         <Footer lang={lang} />

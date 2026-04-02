@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // استيراد المكتبة
 import { translations } from "../data";
 
-const Navbar = ({ lang, setLang }) => {
+const Navbar = ({ lang, setLang, onOpenModal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
 
@@ -100,6 +100,7 @@ const Navbar = ({ lang, setLang }) => {
           <button
             className="hidden md:block bg-[#1f7a5a] text-white px-6 py-2 rounded-full font-bold hover:bg-[#165a42] transition-all duration-300 ease-in-out
             transform hover:scale-105 shadow-md"
+            onClick={onOpenModal}
           >
             {t.donate}
           </button>
@@ -108,7 +109,7 @@ const Navbar = ({ lang, setLang }) => {
         <button
           className="md:hidden text-2xl hover:text-[#1f7a5a] "
           onClick={() => setIsOpen(!isOpen)}
-        >
+        > 
           <motion.div
             animate={{ rotate: isOpen ? 90 : 0 }}
             transition={{ duration: 0.2 }}
@@ -144,6 +145,7 @@ const Navbar = ({ lang, setLang }) => {
 
             <motion.button
               variants={itemVariants}
+              onClick={onOpenModal}
               className="w-full bg-[#1f7a5a] text-white py-2 rounded-full font-bold shadow-sm active:scale-95 transition-transform"
             >
               {t.donate}

@@ -65,6 +65,31 @@ export const translations = {
         },
       ],
     },
+    impact: {
+      title: "ميزانية التشغيل المقدرة",
+      subtitle: "المرحلة الأولى: التأسيس والتشغيل",
+      goalLabel: "هدف التمويل",
+      stats: [
+        {
+          id: 1,
+          label: "طالب مستهدف",
+          value: "500+",
+          icon: <FaUsers size={45} />,
+        },
+        {
+          id: 2,
+          label: "تجهيز الهيكل والبناء",
+          value: "$6000",
+          icon: <FaHome size={45} />,
+        },
+        {
+          id: 3,
+          label: "الطاقة والإنترنت",
+          value: "$4000",
+          icon: <FaSun size={45} />,
+        },
+      ],
+    },
     footer: {
       location: "موقع المبادرة - خانيونس",
       titleMain: "نقطة",
@@ -78,6 +103,27 @@ export const translations = {
       rights: "جميع الحقوق محفوظة لمبادرة نقطة وصل",
       madeWith: "صُنع بشغف في غزة",
       country: "فلسطين 🇵🇸",
+    },
+    contributionModal: {
+      title: "ساهم في نقطة وصل",
+      subtitle: "دعمكم هو الوقود لاستمرار رحلة طلابنا",
+      anonymousLabel: "تبرع كفاعل خير (إخفاء الاسم)",
+      namePlaceholder: "الاسم الكامل",
+      amountPlaceholder: "قيمة المساهمة ($)",
+      tabs: {
+        intl: "دولي",
+        local: "محلي",
+      },
+      methods: {
+        paypal: "PayPal (قريباً)",
+        binance: "Binance (USDT)",
+        bank: "تحويل بنكي",
+        jawwal: "Jawwal Pay",
+        palpay: "PalPay",
+        community: "رابط التمويل",
+      },
+      confirmBtn: "تأكيد المساهمة عبر واتساب",
+      closeBtn: "إغلاق",
     },
   },
   de: {
@@ -137,6 +183,31 @@ export const translations = {
         },
       ],
     },
+    impact: {
+      title: "Geschätztes Betriebsbudget",
+      subtitle: "Phase 1: Gründung und Betrieb",
+      goalLabel: "Finanzierungsziel",
+      stats: [
+        {
+          id: 1,
+          label: "Zielschüler",
+          value: "500+",
+          icon: <FaUsers size={45} />,
+        },
+        {
+          id: 2,
+          label: "Struktur & Bau",
+          value: "$6000",
+          icon: <FaHome size={45} />,
+        },
+        {
+          id: 3,
+          label: "Strom & Internet",
+          value: "$4000",
+          icon: <FaSun size={45} />,
+        },
+      ],
+    },
     footer: {
       location: "Initiativstandort - Khan Yunis",
       titleMain: "Noqtat",
@@ -150,6 +221,49 @@ export const translations = {
       rights: "Alle Rechte vorbehalten – Noqtat Wasl Initiative",
       madeWith: "Mit Leidenschaft in Gaza erstellt",
       country: "Palästina 🇵🇸",
+    },
+    contributionModal: {
+      title: "Contribute to Nuqtat Wasl",
+      subtitle: "Your support fuels our students' journey",
+      anonymousLabel: "Donate anonymously",
+      namePlaceholder: "Full Name",
+      amountPlaceholder: "Amount ($)",
+      tabs: {
+        intl: "International",
+        local: "Local",
+      },
+      methods: {
+        paypal: "PayPal (Soon)",
+        binance: "Binance (USDT)",
+        bank: "Bank Transfer",
+        jawwal: "Jawwal Pay",
+        palpay: "PalPay",
+        community: "Funding Link",
+      },
+      confirmBtn: "Confirm via WhatsApp",
+      closeBtn: "Close",
+    },
+    contributionModal: {
+      title: "Unterstützen Sie Nuqtat Wasl",
+      subtitle: "Ihre Unterstützung sichert die Zukunft unserer Schüler",
+      anonymousLabel: "Anonym spenden",
+      namePlaceholder: "Vollständiger Name",
+      amountPlaceholder: "Betrag ($)",
+      tabs: {
+        intl: "International",
+        local: "Lokal",
+      },
+      methods: {
+        paypal: "PayPal (Demnächst)",
+        binance: "Binance (USDT)",
+        bank: "Banküberweisung",
+        jawwal: "Jawwal Pay",
+        palpay: "PalPay",
+        community: "Funding-Link",
+      },
+      confirmBtn: "Per WhatsApp bestätigen",
+      closeBtn: "Schließen",
+      copyMsg: "Kopiert!",
     },
   },
   en: {
@@ -209,6 +323,31 @@ export const translations = {
         },
       ],
     },
+    impact: {
+      title: "Estimated Operating Budget",
+      subtitle: "Phase 1: Foundation and Operation",
+      goalLabel: "Funding Goal",
+      stats: [
+        {
+          id: 1,
+          label: "Target Students",
+          value: "500+",
+          icon: <FaUsers size={45} />,
+        },
+        {
+          id: 2,
+          label: "Structure & Construction",
+          value: "$6000",
+          icon: <FaHome size={45} />,
+        },
+        {
+          id: 3,
+          label: "Power & Internet",
+          value: "$4000",
+          icon: <FaSun size={45} />,
+        },
+      ],
+    },
     footer: {
       location: "Initiative Location - Khan Younis",
       titleMain: "Noqtat",
@@ -260,27 +399,6 @@ export const constructionNeeds = [
     cost: 2000,
     status: "pending",
     progress: 0,
-  },
-];
-// استبدل مصفوفة impactStats الحالية بهذا التعديل
-export const impactStats = [
-  {
-    id: 1,
-    label: "طالب مستهدف",
-    value: "500+",
-    icon: <FaUsers size={45} />,
-  },
-  {
-    id: 2,
-    label: "تجهيز الهيكل والبناء",
-    value: "$6000",
-    icon: <FaHome size={45} />,
-  },
-  {
-    id: 3,
-    label: "الطاقة والإنترنت",
-    value: "$4000",
-    icon: <FaSun size={45} />,
   },
 ];
 
