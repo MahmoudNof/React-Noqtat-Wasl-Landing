@@ -14,6 +14,7 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
   const [activeTab, setActiveTab] = useState("intl"); // intl or local
   const [donorName, setDonorName] = useState("");
   const [amount, setAmount] = useState("");
+  const [copied, setCopied] = useState(false);
   const t = translations[lang].contributionModal;  
 
   const handleConfirm = () => {
@@ -52,6 +53,14 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
       document.body.style.overflow = 'unset'; // إعادة التمرير عند الإغلاق
     };
   }, [isOpen, onClose]);
+
+  const handleCopy = (text) => {
+  navigator.clipboard.writeText(text);
+  setCopied(true);
+  
+  // إعادة الأيقونة لشكلها الطبيعي بعد ثانيتين
+  setTimeout(() => setCopied(false), 4000 );
+};
 
   if (!isOpen) return null;
 
@@ -210,13 +219,13 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
                     <div className="flex items-center justify-between p-3 bg-yellow-50 border border-yellow-200 rounded-xl">
                       <div className="flex flex-col">
                         <span className="text-[10px] text-yellow-600 font-bold uppercase tracking-wider">
-                          USDT (BEP20)
+                          BNB (BEP20)
                         </span>
                         <span className="text-xs font-mono truncate w-48 text-gray-600">
-                          0x...YourWalletAddress
+                          0x6a638ec973f6febc7091856f512d42d6f5647737
                         </span>
                       </div>
-                      <button className="p-2 hover:bg-yellow-200 rounded-lg transition-colors text-yellow-700">
+                      <button onClick={() => handleCopy("0x6a638ec973f6febc7091856f512d42d6f5647737")} className="p-2 hover:bg-yellow-200 rounded-lg transition-colors text-yellow-700">
                         <FaCopy />
                       </button>
                     </div>
