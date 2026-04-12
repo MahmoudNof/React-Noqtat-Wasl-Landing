@@ -5,7 +5,45 @@ import img3 from "./assets/img3.jpeg";
 import img4 from "./assets/img4.jpeg";
 import img5 from "./assets/img5.jpeg";
 
+export const galleryImages = [img1, img2, img3, img4, img5];
+
 import { FaUsers, FaHome, FaSun } from "react-icons/fa";
+
+// 1. تعريف الأسعار والكميات (المصدر الوحيد للحقيقة)
+const PRICES = {
+  ARCH: 1000,
+  LEG: 500,
+  DRAIN: 400,
+};
+
+const QTY_PER_UNIT = {
+  ARCHES: 2,
+  LEGS: 4,
+  DRAINS: 2,
+};
+
+export const CONSTRUCTION_CONFIG = {
+  exchangeRate: 3,
+  unitsCount: 6,
+};
+
+// 2. الحسابات التلقائية (Derivations)
+// تكلفة الوحدة = (2*1000) + (4*500) + (2*400) = 4800 شيكل
+const unitTotalILS =
+  PRICES.ARCH * QTY_PER_UNIT.ARCHES +
+  PRICES.LEG * QTY_PER_UNIT.LEGS +
+  PRICES.DRAIN * QTY_PER_UNIT.DRAINS;
+
+const totalProjectILS = unitTotalILS * CONSTRUCTION_CONFIG.unitsCount; // 28,800 شيكل
+
+const totalProjectUSD = Math.round(
+  totalProjectILS / CONSTRUCTION_CONFIG.exchangeRate,
+); // 9,600 دولار
+// export const CONSTRUCTION_CONFIG = {
+//   exchangeRate: 3, // سعر الصرف الذي طلبته
+//   unitsCount: 6,
+//   totalStructureUSD: Math.round(28800 / CONSTRUCTION_CONFIG.exchangeRate), // القيمة التي ستظهر في Impact
+// };
 
 export const translations = {
   ar: {
@@ -65,6 +103,42 @@ export const translations = {
         },
       ],
     },
+    needs: {
+      title: "تحليل تكلفة الوحدة النمطية",
+      badge: "مكونات الوحدة النمطية",
+      description:
+        "نعتمد نظام الوحدات المتكاملة، حيث تتكون كل وحدة من هيكل أساسي يضمن الصمود والاستدامة.",
+      unitTotalLabel: "إجمالي تكلفة الوحدة:",
+      fullProjectLabel: "إجمالي الهيكل والبناء (6 وحدات)",
+      totalUnitsLabel: "عدد الوحدات المطلوبة",
+      estimatedUSD: "التقدير بالدولار",
+      sponsorBtn: "تبنّ تكلفة وحدة كاملة",
+      unitSuffix: "وحدات متصلة",
+      currency: "₪",
+      // تعريف المكونات هنا ليتم عمل map لها لاحقاً
+      items: [
+        {
+          id: 1,
+          label: `${QTY_PER_UNIT.ARCHES} قوس معدني`,
+          price: PRICES.ARCH * QTY_PER_UNIT.ARCHES,
+          icon: "FaArchway",
+        },
+        {
+          id: 2,
+          label: `${QTY_PER_UNIT.LEGS} أرجل بقواعد`,
+          price: PRICES.LEG * QTY_PER_UNIT.LEGS,
+          icon: "FaColumns",
+        },
+        {
+          id: 3,
+          label: `${QTY_PER_UNIT.DRAINS} مجاري مياه`,
+          price: PRICES.DRAIN * QTY_PER_UNIT.DRAINS,
+          icon: "FaWater",
+        },
+      ],
+      unitTotal: unitTotalILS,
+      usdTotal: totalProjectUSD,
+    },
     impact: {
       title: "ميزانية التشغيل المقدرة",
       subtitle: "المرحلة الأولى: التأسيس والتشغيل",
@@ -72,20 +146,20 @@ export const translations = {
       stats: [
         {
           id: 1,
-          label: "طالب مستهدف",
-          value: "500+",
+          label: "سعة تعليمية شهرياً", // بدلاً من طالب مستهدف فقط
+          value: "+5,000",
           icon: <FaUsers size={45} />,
         },
         {
           id: 2,
           label: "تجهيز الهيكل والبناء",
-          value: "$6000",
+          value: `$${totalProjectUSD}`,
           icon: <FaHome size={45} />,
         },
         {
           id: 3,
           label: "الطاقة والإنترنت",
-          value: "$4000",
+          value: "قيد التقدير",
           icon: <FaSun size={45} />,
         },
       ],
@@ -183,6 +257,42 @@ export const translations = {
         },
       ],
     },
+    needs: {
+      title: "Modulare Kostenanalyse",
+      badge: "Modulkomponenten",
+      description:
+        "Wir verwenden ein integriertes Modulares System, bei dem jede Einheit aus einer Grundstruktur besteht.",
+      unitTotalLabel: "Gesamtkosten pro Einheit:",
+      fullProjectLabel: "Gesamtstruktur & Bau (6 Einheiten)",
+      totalUnitsLabel: "Anzahl der benötigten Einheiten",
+      estimatedUSD: "Geschätzte USD",
+      sponsorBtn: "Sponsoren Sie eine Einheit",
+      unitSuffix: "Verbundene Einheiten",
+      currency: "₪",
+      items: [
+        {
+          id: 1,
+          label: `${QTY_PER_UNIT.ARCHES} Metallbögen`,
+          price: PRICES.ARCH * QTY_PER_UNIT.ARCHES,
+          icon: "FaArchway",
+        },
+
+        {
+          id: 2,
+          label: `${QTY_PER_UNIT.LEGS} Stützbeine mit Sockel`,
+          price: PRICES.LEG * QTY_PER_UNIT.LEGS,
+          icon: "FaColumns",
+        },
+        {
+          id: 3,
+          label: `${QTY_PER_UNIT.DRAINS} Wasserabläufe (3m)`,
+          price: PRICES.DRAIN * QTY_PER_UNIT.DRAINS,
+          icon: "FaWater",
+        },
+      ],
+      unitTotal: unitTotalILS,
+      usdTotal: totalProjectUSD,
+    },
     impact: {
       title: "Geschätztes Betriebsbudget",
       subtitle: "Phase 1: Gründung und Betrieb",
@@ -190,20 +300,19 @@ export const translations = {
       stats: [
         {
           id: 1,
-          label: "Zielschüler",
-          value: "500+",
+          label: "Monatliche Kapazität", value: "+5.000",
           icon: <FaUsers size={45} />,
         },
         {
           id: 2,
           label: "Struktur & Bau",
-          value: "$6000",
+          value: `$${totalProjectUSD}`,
           icon: <FaHome size={45} />,
         },
         {
           id: 3,
           label: "Strom & Internet",
-          value: "$4000",
+          value: "In Planung",
           icon: <FaSun size={45} />,
         },
       ],
@@ -302,6 +411,40 @@ export const translations = {
         },
       ],
     },
+    needs: {
+      title: "Modular Cost Analysis",
+      badge: "Module Components",
+      description:"We adopt an integrated modular system, where each unit consists of a core structure ensuring durability.",
+      unitTotalLabel: "Total Unit Cost:",
+      fullProjectLabel: "Total Structure & Construction (6 Units)",
+      totalUnitsLabel: "Total Units Required",
+      estimatedUSD: "Estimated USD",
+      sponsorBtn: "Sponsor a Full Unit",
+      unitSuffix: "Connected Units",
+      currency: "₪",
+      items: [
+        {
+          id: 1,
+          label: `${QTY_PER_UNIT.ARCHES} Metal Arches`,
+          price: PRICES.ARCH * QTY_PER_UNIT.ARCHES,
+          icon: "FaArchway",
+        },
+        {
+          id: 2,
+          label: `${QTY_PER_UNIT.LEGS} Legs with Integrated Bases`,
+          price: PRICES.LEG * QTY_PER_UNIT.LEGS,
+          icon: "FaColumns",
+        },
+        {
+          id: 3,
+          label: `${QTY_PER_UNIT.DRAINS} Water Drains (3m)`,
+          price: PRICES.DRAIN * QTY_PER_UNIT.DRAINS,
+          icon: "FaWater",
+        },
+      ],
+      unitTotal: unitTotalILS,
+      usdTotal: totalProjectUSD,
+    },
     impact: {
       title: "Estimated Operating Budget",
       subtitle: "Phase 1: Foundation and Operation",
@@ -309,20 +452,19 @@ export const translations = {
       stats: [
         {
           id: 1,
-          label: "Target Students",
-          value: "500+",
+          label: "Monthly Capacity", value: "+5,000",
           icon: <FaUsers size={45} />,
         },
         {
           id: 2,
           label: "Structure & Construction",
-          value: "$6000",
+          value: `$${totalProjectUSD}`,
           icon: <FaHome size={45} />,
         },
         {
           id: 3,
           label: "Power & Internet",
-          value: "$4000",
+          value: "TBD",
           icon: <FaSun size={45} />,
         },
       ],
@@ -364,89 +506,3 @@ export const translations = {
     },
   },
 };
-
-export const galleryImages = [img1, img2, img3, img4, img5];
-
-export const constructionNeeds = [
-  {
-    id: 1,
-    item: "أقواس حديد",
-    quantity: 5,
-    cost: 8000,
-    status: "pending",
-    progress: 20,
-  },
-  {
-    id: 2,
-    item: "جسور حديدية",
-    quantity: 8,
-    cost: 4000,
-    status: "urgent",
-    progress: 0,
-  },
-  {
-    id: 3,
-    item: "الشادر / التغطية",
-    quantity: "تغطية كاملة",
-    cost: 6000,
-    status: "pending",
-    progress: 10,
-  },
-  {
-    id: 4,
-    item: "تركيب وتشطيب",
-    quantity: "كامل",
-    cost: 2000,
-    status: "pending",
-    progress: 0,
-  },
-];
-
-export const sections = [
-  {
-    title: "مبادرة نقطة وصل",
-    content: `مساحة تعليمية مجتمعية تُعيد للطلاب حقهم في التعلّم، وتمنحهم بيئة آمنة ومستقرة للاستمرار رغم كل الظروف.`,
-  },
-  {
-    title: "نداء إنساني",
-    content: `في غزة اليوم، لم يعد السؤال: كيف نُطوّر التعليم؟ بل كيف نُبقيه حيّاً.
-
-آلاف الطلاب يقفون على حافة الانقطاع الكامل عن التعليم، ليس بسبب ضعف الرغبة أو الطموح، بل بسبب غياب أبسط المقومات: كهرباء، إنترنت، ومكان هادئ يشعر فيه الطالب أنه ما زال طالباً، وأن مستقبله لم يُسلب منه بعد.
-`,
-  },
-  {
-    title: "عن مبادرة نقطة وصل",
-    content: `نقطة وصل هي مبادرة تعليمية مجتمعية تنطلق من حاجة حقيقية وملحّة، وتهدف إلى توفير مساحة تعليمية مستقرة تعمل بالطاقة الشمسية، وتُخصّص بالدرجة الأولى لدعم طلاب المدارس والجامعات لمتابعة تعليمهم الحضوري والإلكتروني.
-
-كما توفّر المبادرة دعماً مكمّلاً ومحدوداً لفئة العاملين عن بُعد، بما يساهم في تعزيز صمود العائلات دون التأثير على الهدف التعليمي الأساسي.
-`,
-  },
-  {
-    title: "لماذا نحتاج نقطة وصل الآن؟",
-    content: `الحرب دمّرت المدارس، وأغلقت الجامعات، وجعلت البيوت أماكن غير صالحة للتعلّم. ومع اقتراب عام دراسي جديد، يواجه مئات الطلاب خطر فقدان عامهم الدراسي بالكامل.
-
-نقطة وصل ليست مشروع رفاهية، بل محاولة جادة لإنقاذ ما يمكن إنقاذه من المسار التعليمي لجيل كامل.
-`,
-  },
-  {
-    title: "ما الذي نوفّره من خلال دعمكم؟",
-    content: `- مساحة هادئة ومهيأة للمذاكرة والمتابعة الأكاديمية
-- مكاتب ومقاعد دراسية مناسبة
-- إنترنت مستقر لمتابعة الدروس والمحاضرات
-- منظومة طاقة شمسية تضمن الاستمرارية
-
-كل عنصر من هذه العناصر يمثّل فارقاً حقيقياً في حياة طالب.
-`,
-  },
-  {
-    title: "الأثر المتوقع",
-    content: `دعمكم، نُعيد للطالب شعوره بالاستقرار، ونحميه من الانقطاع، ونمنحه فرصة حقيقية لمواصلة طريقه التعليمي وبناء مستقبله رغم كل التحديات.`,
-  },
-  {
-    title: "ندعوكم للشراكة",
-    content: `تبرعكم ليس مجرد دعم مالي، بل موقف إنساني واضح إلى جانب التعليم، وإيمان بأن إنقاذ طالب اليوم هو استثمار في مجتمع الغد.
-
-نرحب بجميع أشكال الدعم، سواء بالتبرع المالي، أو الشراكات التعليمية، أو المساهمة في تجهيز المساحة.
-`,
-  },
-];

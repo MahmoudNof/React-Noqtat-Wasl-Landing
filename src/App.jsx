@@ -1,9 +1,7 @@
 import "./App.css";
-import React,{ useState } from "react";
+import React, { useState } from "react";
 // استيراد الصور
 import { translations } from "./data";
-import { constructionNeeds } from "./data.jsx";
-
 
 // استيراد المكونات
 import Navbar from "./Component/Navbar";
@@ -15,39 +13,37 @@ import Impact from "./Component/Impact";
 import Footer from "./Component/Footer";
 import ContributionModal from "./Component/ContributionModal.jsx";
 
-
-
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-const [lang, setLang] = useState("ar");
-const t = translations[lang];
+  const [lang, setLang] = useState("ar");
+  const t = translations[lang];
   return (
     <div className="App" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div id="navbar">
-        <Navbar 
-          lang={lang} 
-          setLang={setLang} 
+        <Navbar
+          lang={lang}
+          setLang={setLang}
           links={t.navbar.links}
-          content={t.navbar} 
-          onOpenModal={() => setIsModalOpen(true)}/>
+          content={t.navbar}
+          onOpenModal={() => setIsModalOpen(true)}
+        />
       </div>
       <div id="hero">
-        <Hero lang={lang} 
-        onOpenModal={() => setIsModalOpen(true)}/>
+        <Hero lang={lang} onOpenModal={() => setIsModalOpen(true)} />
       </div>
-      <ContributionModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        lang={lang} 
+      <ContributionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        lang={lang}
       />
       <div id="gallery">
         <ImageSlider lang={lang} />
       </div>
       <div id="roadmap">
-        <Roadmap  lang={lang}/>
+        <Roadmap lang={lang} />
       </div>
       <div id="needs">
-        <Needs needs={constructionNeeds} lang={lang} />
+        <Needs lang={lang} />
       </div>
       <div id="impact">
         <Impact lang={lang} />

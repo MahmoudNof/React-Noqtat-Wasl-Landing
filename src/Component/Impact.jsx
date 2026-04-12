@@ -38,7 +38,7 @@ const Impact = ({lang}) => {
               </p>
               {/* تم تصحيح الخطأ المطبعي هنا */}
               <p className="text-gray-400 text-sm font-medium tracking-wide">
-                هدف التمويل
+                {stat.goalLabel}
               </p>
             </div>
           ))}
