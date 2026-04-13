@@ -300,7 +300,8 @@ export const translations = {
       stats: [
         {
           id: 1,
-          label: "Monatliche Kapazität", value: "+5.000",
+          label: "Monatliche Kapazität",
+          value: "+5.000",
           icon: <FaUsers size={45} />,
         },
         {
@@ -414,7 +415,8 @@ export const translations = {
     needs: {
       title: "Modular Cost Analysis",
       badge: "Module Components",
-      description:"We adopt an integrated modular system, where each unit consists of a core structure ensuring durability.",
+      description:
+        "We adopt an integrated modular system, where each unit consists of a core structure ensuring durability.",
       unitTotalLabel: "Total Unit Cost:",
       fullProjectLabel: "Total Structure & Construction (6 Units)",
       totalUnitsLabel: "Total Units Required",
@@ -452,7 +454,8 @@ export const translations = {
       stats: [
         {
           id: 1,
-          label: "Monthly Capacity", value: "+5,000",
+          label: "Monthly Capacity",
+          value: "+5,000",
           icon: <FaUsers size={45} />,
         },
         {

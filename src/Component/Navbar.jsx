@@ -109,7 +109,7 @@ const Navbar = ({ lang, setLang, onOpenModal }) => {
         <button
           className="md:hidden text-2xl hover:text-[#1f7a5a] "
           onClick={() => setIsOpen(!isOpen)}
-        > 
+        >
           <motion.div
             animate={{ rotate: isOpen ? 90 : 0 }}
             transition={{ duration: 0.2 }}
@@ -135,7 +135,22 @@ const Navbar = ({ lang, setLang, onOpenModal }) => {
                   <a
                     href={link.href}
                     className="block hover:text-[#1f7a5a] transition-all duration-300 ease-in-out font-bold"
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      // 1. منع المتصفح من التصرف العشوائي
+                      e.preventDefault();
+
+                      // 2. إغلاق القائمة أولاً
+                      setIsOpen(false);
+
+                      // 3. تأخير بسيط جداً لضمان بدء إغلاق المنيو ثم الانتقال
+                      setTimeout(() => {
+                        const targetId = link.href.replace("#", "");
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }, 100); // تأخير 100 مللي ثانية كافٍ جداً
+                    }}
                   >
                     {link.name}
                   </a>

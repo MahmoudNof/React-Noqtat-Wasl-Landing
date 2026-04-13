@@ -15,18 +15,25 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
   const [donorName, setDonorName] = useState("");
   const [amount, setAmount] = useState("");
   const [copied, setCopied] = useState(false);
-  const t = translations[lang].contributionModal;  
+  const t = translations[lang].contributionModal;
 
   const handleConfirm = () => {
     const finalName = isAnonymous
-      ? (lang === "ar"
+      ? lang === "ar"
         ? "فاعل خير"
-        : "Anonymous")
-      : (donorName || lang === 'ar' ? 'غير محدد' : 'Not Specified');
+        : "Anonymous"
+      : donorName || lang === "ar"
+        ? "غير محدد"
+        : "Not Specified";
     const finalAmount = amount || "0";
     const method =
-      activeTab === "intl" ? (lang === 'ar' ? 'دولي' : 'International') : (lang === 'ar' ? 'محلي' : 'Local');
-    
+      activeTab === "intl"
+        ? lang === "ar"
+          ? "دولي"
+          : "International"
+        : lang === "ar"
+          ? "محلي"
+          : "Local";
 
     // رقم الواتساب الخاص بك (تأكد من وضع المفتاح الدولي بدون أصفار)
     const myPhoneNumber = "972598726980";
@@ -44,29 +51,32 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
       if (event.keyCode === 27) onClose(); // 27 هو رمز زر ESC
     };
     if (isOpen) {
-        window.addEventListener('keydown', handleEsc);
-        // منع التمرير في الصفحة الخلفية عند فتح المودال
-        document.body.style.overflow = 'hidden';
-      }
-      return () => {
-      window.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'unset'; // إعادة التمرير عند الإغلاق
+      window.addEventListener("keydown", handleEsc);
+      // منع التمرير في الصفحة الخلفية عند فتح المودال
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "unset"; // إعادة التمرير عند الإغلاق
     };
   }, [isOpen, onClose]);
 
   const handleCopy = (text) => {
-  navigator.clipboard.writeText(text);
-  setCopied(true);
-  
-  // إعادة الأيقونة لشكلها الطبيعي بعد ثانيتين
-  setTimeout(() => setCopied(false), 4000 );
-};
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+
+    // إعادة الأيقونة لشكلها الطبيعي بعد ثانيتين
+    setTimeout(() => setCopied(false), 4000);
+  };
 
   if (!isOpen) return null;
 
   return (
     <AnimatePresence>
-      <div onClick={onClose} className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -76,20 +86,14 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
           style={{ direction: lang === "ar" ? "rtl" : "ltr" }}
         >
           {/* خلفية جمالية علوية مع الساعة الرملية */}
-          <div  className="bg-[#1f7a5a] p-8 text-white text-center relative overflow-hidden">
+          <div className="bg-[#1f7a5a] p-8 text-white text-center relative overflow-hidden">
             <div className="relative z-10">
               <div className="flex justify-center mb-4">
                 <div className="relative">
                   {/* الدائرة المحيطة المتحركة */}
                   <motion.svg
                     viewBox="0 0 100 100"
-                    className="w-24 h-24 absolute -top-2 -left-2"
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
+                    className="w-24 h-24 absolute -top-2 -left-2 -rotate-90"
                   >
                     <circle
                       cx="50"
@@ -97,46 +101,65 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
                       r="48"
                       fill="none"
                       stroke="rgba(255,255,255,0.2)"
-                      strokeWidth="2"
+                      strokeWidth="4"
                     />
-                    <circle
+                    <motion.circle
                       cx="50"
                       cy="50"
                       r="48"
                       fill="none"
                       stroke="#D4AF37"
-                      strokeWidth="3"
-                      strokeDasharray="100 200"
+                      strokeWidth="4" // زيادة السمك قليلاً لزيادة وضوح النبض
                       strokeLinecap="round"
+                      /* strokeDasharray: القيمة الأولى (4) هي طول الشُرطة، والثانية (6) هي الفراغ بينها.
+     المجموع الكلي للمحيط يبقى 301.5.
+  */
+                      strokeDasharray="4 9"
+                      initial={{ strokeDashoffset: 301.5, opacity: 0.4 }}
+                      animate={{
+                        strokeDashoffset: 301.5 - 301.5 * 0.28, // التوقف عند 28% من المحيط
+                        opacity: [0.4, 1, 0.4], // تأثير النبض (وميض)
+                        filter: [
+                          "drop-shadow(0 0 0px #D4AF37)",
+                          "drop-shadow(0 0 8px #D4AF37)",
+                          "drop-shadow(0 0 0px #D4AF37)",
+                        ], // توهج ذهبي نبضي
+                      }}
+                      transition={{
+                        strokeDashoffset: { duration: 3, ease: "easeOut" }, // التحميل في البداية
+                        opacity: {
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }, // النبض للأبد
+                        filter: {
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear",
+                        },
+                      }}
                     />
                   </motion.svg>
 
                   {/* الساعة الرملية */}
                   <motion.div
-                    animate={{ rotate: [0, 180, 180, 360, 360] }}
+                    animate={{ rotate: [0, 180, 0] }}
                     transition={{
-                      duration: 4,
+                      duration: 8,
                       repeat: Infinity,
-                      times: [0, 0.4, 0.5, 0.9, 1],
+                      times: [0, 0.5, 0.5, 1],
                       ease: "easeInOut",
                     }}
                     className="bg-white/10 p-3 rounded-full backdrop-blur-md border border-white/20 relative z-10"
                   >
                     <svg
-                      width="40"
-                      height="40"
+                      width="55"
+                      height="55"
                       viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-[#D4AF37]"
+                      fill="#D4AF37"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M5 2h14" />
-                      <path d="M5 22h14" />
-                      <path d="M6 2v6.7c0 .8.3 1.6.8 2.3l4.4 6c.5.7.8 1.5.8 2.3V22" />
-                      <path d="M18 2v6.7c0 .8-.3 1.6-.8 2.3l-4.4 6c-.5.7-.8 1.5-.8 2.3V22" />
+                      <path d="M6.108,20H4a1,1,0,0,0,0,2H20a1,1,0,0,0,0-2H17.892c-.247-2.774-1.071-7.61-3.826-9,2.564-1.423,3.453-4.81,3.764-7H20a1,1,0,0,0,0-2H4A1,1,0,0,0,4,4H6.17c.311,2.19,1.2,5.577,3.764,7C7.179,12.39,6.355,17.226,6.108,20ZM9,16.6c0-1.2,3-3.6,3-3.6s3,2.4,3,3.6V20H9Z"></path>
                     </svg>
                   </motion.div>
                 </div>
@@ -225,8 +248,48 @@ const ContributionModal = ({ isOpen, onClose, lang }) => {
                           0x6a638ec973f6febc7091856f512d42d6f5647737
                         </span>
                       </div>
-                      <button onClick={() => handleCopy("0x6a638ec973f6febc7091856f512d42d6f5647737")} className="p-2 hover:bg-yellow-200 rounded-lg transition-colors text-yellow-700">
-                        <FaCopy />
+                      <button
+                        onClick={() =>
+                          handleCopy(
+                            "0x6a638ec973f6febc7091856f512d42d6f5647737",
+                          )
+                        }
+                        className="p-2 hover:bg-yellow-200 rounded-lg transition-colors text-yellow-700"
+                      >
+                        <AnimatePresence mode="wait">
+                          {copied ? (
+                            <motion.div
+                              key="check"
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 0 }}
+                              className="text-green-600"
+                            >
+                              {/* أيقونة "صح" تظهر عند تحقق النسخ */}
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                              </svg>
+                            </motion.div>
+                          ) : (
+                            <motion.div
+                              key="copy"
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 0 }}
+                            >
+                              <FaCopy size={18} />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </button>
                     </div>
                   </>

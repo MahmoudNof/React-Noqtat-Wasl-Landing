@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // استيراد الصور
 import { translations } from "./data";
 
@@ -17,40 +17,51 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lang, setLang] = useState("ar");
   const t = translations[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  }, [lang]);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
   return (
-    <div className="App" dir={lang === "ar" ? "rtl" : "ltr"}>
+    <div className="App">
       <div id="navbar">
         <Navbar
           lang={lang}
           setLang={setLang}
           links={t.navbar.links}
           content={t.navbar}
-          onOpenModal={() => setIsModalOpen(true)}
+          onOpenModal={handleOpenModal}
         />
       </div>
-      <div id="hero">
-        <Hero lang={lang} onOpenModal={() => setIsModalOpen(true)} />
-      </div>
-      <ContributionModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        lang={lang}
-      />
-      <div id="gallery">
-        <ImageSlider lang={lang} />
-      </div>
-      <div id="roadmap">
-        <Roadmap lang={lang} />
-      </div>
-      <div id="needs">
-        <Needs lang={lang} />
-      </div>
-      <div id="impact">
-        <Impact lang={lang} />
-      </div>
+      <main>
+        <div id="hero">
+          <Hero lang={lang} onOpenModal={handleOpenModal} />
+        </div>
+        <div id="gallery">
+          <ImageSlider lang={lang} />
+        </div>
+        <div id="roadmap">
+          <Roadmap lang={lang} />
+        </div>
+        <div id="needs">
+          <Needs lang={lang} onOpenModal={handleOpenModal} />
+        </div>
+        <div id="impact">
+          <Impact lang={lang} />
+        </div>
+      </main>
       <div id="footer">
         <Footer lang={lang} />
       </div>
+      <ContributionModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        lang={lang}
+      />
     </div>
   );
 }
